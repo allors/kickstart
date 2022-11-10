@@ -29,10 +29,6 @@
       "@allors/base/workspace/angular/application": ["libs/base/workspace/angular/application/src/index.ts"],
       "@allors/base/workspace/angular-material/foundation": ["libs/base/workspace/angular-material/foundation/src/index.ts"],
       "@allors/base/workspace/angular-material/application": ["libs/base/workspace/angular-material/application/src/index.ts"],
-      // Apps Extranet
-      "@allors/apps-extranet/workspace/angular-material": ["libs/apps-extranet/workspace/angular-material/src/index.ts"],
-      // Aviation Extranet
-      "@allors/aviation-extranet/workspace/angular-material": ["libs/aviation-extranet/workspace/angular-material/src/index.ts"],
       // Default
       "@allors/default/workspace/meta": ["libs/apps-extranet/workspace/meta/src/index.ts"],
       "@allors/default/workspace/meta-json": ["libs/apps-extranet/workspace/meta-json/src/index.ts"],

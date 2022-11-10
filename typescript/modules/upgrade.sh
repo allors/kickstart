@@ -37,22 +37,6 @@ npx nx g @nrwl/workspace:library extranet/workspace/domain
 npx nx g @nrwl/workspace:library extranet/workspace/meta
 npx nx g @nrwl/workspace:library extranet/workspace/meta-json
 
-// Aviation Intranet
-npx nx g @nrwl/workspace:library aviation-intranet/workspace/angular-material
-npx nx g @nrwl/workspace:library aviation-intranet/workspace/derivations
-
-// Aviation Extranet
-npx nx g @nrwl/workspace:library aviation-extranet/workspace/angular-material
-npx nx g @nrwl/workspace:library aviation-extranet/workspace/derivations
-
-// Apps Intranet
-npx nx g @nrwl/workspace:library apps-intranet/workspace/angular-material
-npx nx g @nrwl/workspace:library apps-intranet/workspace/derivations
-
-// Apps Extranet
-npx nx g @nrwl/workspace:library apps-extranet/workspace/angular-material
-npx nx g @nrwl/workspace:library apps-extranet/workspace/derivations
-
 // Base
 npx nx g @nrwl/workspace:library base/workspace/angular/foundation
 npx nx g @nrwl/workspace:library base/workspace/angular/application

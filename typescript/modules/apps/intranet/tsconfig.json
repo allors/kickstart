@@ -35,12 +35,6 @@
       "@allors/base/workspace/angular/application": ["libs/base/workspace/angular/application/src/index.ts"],
       "@allors/base/workspace/angular-material/foundation": ["libs/base/workspace/angular-material/foundation/src/index.ts"],
       "@allors/base/workspace/angular-material/application": ["libs/base/workspace/angular-material/application/src/index.ts"],
-      // Apps-Intranet
-      "@allors/apps-intranet/workspace/angular-material": ["libs/apps-intranet/workspace/angular-material/src/index.ts"],
-      "@allors/apps-intranet/workspace/derivations": ["libs/apps-intranet/workspace/derivations/src/index.ts"],
-      // Aviation-Intranet
-      "@allors/aviation-intranet/workspace/derivations": ["libs/aviation-intranet/workspace/derivations/src/index.ts"],
-      "@allors/aviation-intranet/workspace/angular-material": ["libs/aviation-intranet/workspace/angular-material/src/index.ts"],
       // Default
       "@allors/default/workspace/angular-material": ["libs/intranet/workspace/angular-material/src/index.ts"],
       "@allors/default/workspace/meta": ["libs/intranet/workspace/meta/src/index.ts"],

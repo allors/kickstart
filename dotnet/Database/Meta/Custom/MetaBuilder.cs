@@ -21,54 +21,78 @@ namespace Allors.Database.Meta
             relationTypes.SingletonLogoImage.RoleType.IsRequired = false;
 
             DefaultWorkspace(meta, relationTypes, methodTypes);
+            ExtranetWorkspace(meta, relationTypes, methodTypes);
         }
 
         private static void DefaultWorkspace(MetaPopulation meta, RelationTypes relationTypes, MethodTypes methodTypes)
         {
+            var workspaceName = "Default";
+
             // Methods
-            AddWorkspace(methodTypes.DeletableDelete, "Default");
-            AddWorkspace(methodTypes.PrintablePrint, "Default");
+            AddWorkspace(methodTypes.DeletableDelete, workspaceName);
+            AddWorkspace(methodTypes.PrintablePrint, workspaceName);
 
             // Relations
-            AddWorkspace(relationTypes.CountryName, "Default");
-
-            AddWorkspace(relationTypes.CurrencyIsoCode, "Default");
-
-            AddWorkspace(relationTypes.EnumerationName, "Default");
-            AddWorkspace(relationTypes.EnumerationIsActive, "Default");
-
-            AddWorkspace(relationTypes.LanguageName, "Default");
-
-            AddWorkspace(relationTypes.LocaleName, "Default");
-            AddWorkspace(relationTypes.LocaleCountry, "Default");
-            AddWorkspace(relationTypes.LocaleLanguage, "Default");
-
-            AddWorkspace(relationTypes.LocalisedLocale, "Default");
-
-            AddWorkspace(relationTypes.ObjectStateName, "Default");
-
-            AddWorkspace(relationTypes.PersonFirstName, "Default");
-            AddWorkspace(relationTypes.PersonLastName, "Default");
-            AddWorkspace(relationTypes.PersonMiddleName, "Default");
-
-            AddWorkspace(relationTypes.UserUserEmail, "Default");
-            AddWorkspace(relationTypes.UserUserName, "Default");
-
-            AddWorkspace(relationTypes.UserGroupName, "Default");
-
-            AddWorkspace(relationTypes.RoleName, "Default");
+            AddWorkspace(relationTypes.CountryName, workspaceName);
+            AddWorkspace(relationTypes.CurrencyIsoCode, workspaceName);
+            AddWorkspace(relationTypes.EnumerationName, workspaceName);
+            AddWorkspace(relationTypes.EnumerationIsActive, workspaceName);
+            AddWorkspace(relationTypes.LanguageName, workspaceName);
+            AddWorkspace(relationTypes.LocaleName, workspaceName);
+            AddWorkspace(relationTypes.LocaleCountry, workspaceName);
+            AddWorkspace(relationTypes.LocaleLanguage, workspaceName);
+            AddWorkspace(relationTypes.LocalisedLocale, workspaceName);
+            AddWorkspace(relationTypes.ObjectStateName, workspaceName);
+            AddWorkspace(relationTypes.PersonFirstName, workspaceName);
+            AddWorkspace(relationTypes.PersonLastName, workspaceName);
+            AddWorkspace(relationTypes.PersonMiddleName, workspaceName);
+            AddWorkspace(relationTypes.UserUserEmail, workspaceName);
+            AddWorkspace(relationTypes.UserUserName, workspaceName);
+            AddWorkspace(relationTypes.UserGroupName, workspaceName);
+            AddWorkspace(relationTypes.RoleName, workspaceName);
 
             // Classes
             // TODO: Optimize
             foreach (Class @class in meta.Classes)
             {
-                if (@class.RoleTypes.Any(v => v.AssignedWorkspaceNames.Contains("Default")) ||
-                    @class.AssociationTypes.Any(v => v.AssignedWorkspaceNames.Contains("Default")) ||
-                    @class.MethodTypes.Any(v => v.AssignedWorkspaceNames.Contains("Default")))
+                if (@class.RoleTypes.Any(v => v.AssignedWorkspaceNames.Contains(workspaceName)) ||
+                    @class.AssociationTypes.Any(v => v.AssignedWorkspaceNames.Contains(workspaceName)) ||
+                    @class.MethodTypes.Any(v => v.AssignedWorkspaceNames.Contains(workspaceName)))
                 {
-                    AddWorkspace(@class, "Default");
+                    AddWorkspace(@class, workspaceName);
                 }
             }
+        }
+
+        private void ExtranetWorkspace(MetaPopulation meta, RelationTypes relationTypes, MethodTypes methodTypes)
+        {
+            const string workspaceName = "Extranet";
+
+            // Relations
+            AddWorkspace(relationTypes.CountryName, workspaceName);
+            AddWorkspace(relationTypes.CurrencyIsoCode, workspaceName);
+            AddWorkspace(relationTypes.EnumerationName, workspaceName);
+            AddWorkspace(relationTypes.EnumerationIsActive, workspaceName);
+            AddWorkspace(relationTypes.LanguageName, workspaceName);
+            AddWorkspace(relationTypes.LocaleName, workspaceName);
+            AddWorkspace(relationTypes.LocaleCountry, workspaceName);
+            AddWorkspace(relationTypes.LocaleLanguage, workspaceName);
+            AddWorkspace(relationTypes.LocalisedLocale, workspaceName);
+            AddWorkspace(relationTypes.ObjectStateName, workspaceName);
+            AddWorkspace(relationTypes.PersonFirstName, workspaceName);
+            AddWorkspace(relationTypes.PersonLastName, workspaceName);
+            AddWorkspace(relationTypes.PersonMiddleName, workspaceName);
+            AddWorkspace(relationTypes.UserUserEmail, workspaceName);
+            AddWorkspace(relationTypes.UserUserName, workspaceName);
+            AddWorkspace(relationTypes.RoleName, workspaceName);
+
+            // Classes
+            AddWorkspace(meta.Country, workspaceName);
+            AddWorkspace(meta.Currency, workspaceName);
+            AddWorkspace(meta.Language, workspaceName);
+            AddWorkspace(meta.Locale, workspaceName);
+            AddWorkspace(meta.Person, workspaceName);
+            AddWorkspace(meta.Role, workspaceName);
         }
     }
 }

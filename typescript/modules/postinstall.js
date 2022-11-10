@@ -11,22 +11,6 @@ function link(src, dst){
     .catch((e) =>  e.errno && e.errno != -4075 ? console.log(e) : console.log('already linked'))
 }
 
-// Aviation Intranet
-link ('../../aviation/typescript/modules/libs/aviation-intranet/workspace/angular-material/src/lib', 'libs/aviation-intranet/workspace/angular-material/src');
-link ('../../aviation/typescript/modules/libs/aviation-intranet/workspace/derivations/src/lib', 'libs/aviation-intranet/workspace/derivations/src');
-
-// Aviation Extranet
-link ('../../aviation/typescript/modules/libs/aviation-extranet/workspace/angular-material/src/lib', 'libs/aviation-extranet/workspace/angular-material/src');
-link ('../../aviation/typescript/modules/libs/aviation-extranet/workspace/derivations/src/lib', 'libs/aviation-extranet/workspace/derivations/src');
-
-// Apps Intranet
-link ('../../allors/typescript/modules/libs/apps-intranet/workspace/angular-material/src/lib', 'libs/apps-intranet/workspace/angular-material/src');
-link ('../../allors/typescript/modules/libs/apps-intranet/workspace/derivations/src/lib', 'libs/apps-intranet/workspace/derivations/src');
-
-// Apps Extranet
-link ('../../allors/typescript/modules/libs/apps-extranet/workspace/angular-material/src/lib', 'libs/apps-extranet/workspace/angular-material/src');
-link ('../../allors/typescript/modules/libs/apps-extranet/workspace/derivations/src/lib', 'libs/apps-extranet/workspace/derivations/src');
-
 // Base
 link ('../../allors/typescript/modules/libs/base/workspace/angular/foundation/src/lib', 'libs/base/workspace/angular/foundation/src');
 link ('../../allors/typescript/modules/libs/base/workspace/angular/application/src/lib', 'libs/base/workspace/angular/application/src');
