@@ -8,7 +8,6 @@
 		<Compile Include="..\..\..\allors\dotnet\system\database\Allors.Database.Meta.Props\props*\**\*.cs" />
 		<Compile Include="..\..\..\allors\dotnet\Core\Database\Meta\Core*\**\*.cs" />
 		<Compile Include="..\..\..\allors\dotnet\Base\Database\Meta\Base*\**\*.cs" />
-		<Compile Include="..\..\..\allors\dotnet\Apps\Database\Meta\Apps*\**\*.cs" />
 	</ItemGroup>
 
 	<ItemGroup>

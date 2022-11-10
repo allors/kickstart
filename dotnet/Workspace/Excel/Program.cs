@@ -6,7 +6,6 @@ using Allors.Workspace.Data;
 using Allors.Workspace.Meta;
 using Application.Sheets;
 using Person = Allors.Workspace.Domain.Person;
-using UserGroup = Allors.Workspace.Domain.UserGroup;
 
 namespace Application
 {
@@ -65,55 +64,15 @@ namespace Application
                     case Actions.Refresh:
                         await this.OnRefresh();
                         break;
-                    case Actions.Customers:
-                        var customersSheet = new CustomersSheet(this);
-                        this.SheetByWorksheet.Add(customersSheet.Sheet, customersSheet);
-                        await customersSheet.Load();
-                        break;
-                    case Actions.SalesInvoices:
-                        var salesInvoicesSheet = new SalesInvoicesSheet(this);
+                    case Actions.People:
+                        var salesInvoicesSheet = new PeopleSheet(this);
                         this.SheetByWorksheet.Add(salesInvoicesSheet.Sheet, salesInvoicesSheet);
                         await salesInvoicesSheet.Load();
                         break;
-                    case Actions.ProductCategories:
-                        var productCategoriesSheet = new ProductCategoriesSheet(this);
-                        this.SheetByWorksheet.Add(productCategoriesSheet.Sheet, productCategoriesSheet);
-                        await productCategoriesSheet.Init();
-                        break;
-                    case Actions.PurchaseInvoices:
-                        var purchaseInvoicesSheet = new PurchaseInvoicesSheet(this);
-                        this.SheetByWorksheet.Add(purchaseInvoicesSheet.Sheet, purchaseInvoicesSheet);
-                        await purchaseInvoicesSheet.Load();
-                        break;
-                    case Actions.SerialisedItems:
-                        var serialisedItemsSheet = new SerialisedItemsSheet(this);
-                        this.SheetByWorksheet.Add(serialisedItemsSheet.Sheet, serialisedItemsSheet);
-                        await serialisedItemsSheet.Init();
-                        break;
-                    case Actions.Rentals:
-                        var rentalsSheet = new RentalsSheet(this);
-                        this.SheetByWorksheet.Add(rentalsSheet.Sheet, rentalsSheet);
-                        await rentalsSheet.Load();
-                        break;
-                    case Actions.SpareParts:
-                        var sparePartsSheet = new SparePartsSheet(this);
-                        this.SheetByWorksheet.Add(sparePartsSheet.Sheet, sparePartsSheet);
-                        await sparePartsSheet.Load();
-                        break;
-                    case Actions.InventoryTransactions:
-                        var inventoryTransactionsSheet = new InventoryTransactionsSheet(this);
-                        this.SheetByWorksheet.Add(inventoryTransactionsSheet.Sheet, inventoryTransactionsSheet);
-                        await inventoryTransactionsSheet.Load();
-                        break;
-                    case Actions.WorkOrders:
-                        var workOrdersSheet = new WorkOrdersSheet(this);
-                        this.SheetByWorksheet.Add(workOrdersSheet.Sheet, workOrdersSheet);
-                        await workOrdersSheet.Init();
-                        break;
-                    case Actions.TimeEntries:
-                        var timeEntriesSheet = new TimeEntriesSheet(this);
-                        this.SheetByWorksheet.Add(timeEntriesSheet.Sheet, timeEntriesSheet);
-                        await timeEntriesSheet.Init();
+                    case Actions.Medias:
+                        var customersSheet = new MediasSheet(this);
+                        this.SheetByWorksheet.Add(customersSheet.Sheet, customersSheet);
+                        await customersSheet.Load();
                         break;
                 }
             }
@@ -139,7 +98,6 @@ namespace Application
                                 Include = this.M.Person.Nodes(v => new []
                                 {
                                     v.UserGroupsWhereMember.Node(),
-                                    v.InternalOrganisationsWhereLocalAdministrator.Node()
                                 })
                             }
                         }
@@ -155,8 +113,6 @@ namespace Application
             this.Roles = new Roles
             {
                 IsAdministrator = groups?.Any(v => v.UniqueId == Roles.AdministratorsId) == true,
-                IsSalesAccountManager = groups?.Any(v => v.UniqueId == Roles.SalesAccountManagersId) == true,
-                IsLocalAdministrator = person?.InternalOrganisationsWhereLocalAdministrator.Any() == true,
             };
 
             var ribbonService = this.Workspace.Services.Get<IRibbonService>();
@@ -191,28 +147,12 @@ namespace Application
                 case "refresh":
                     return isLoggedIn;
 
-                case "customers":
-                    return isLoggedIn && (this.Roles.IsAdministrator);
-
-                case "salesInvoices":
-                case "rentals":
-                    return isLoggedIn && (this.Roles.IsAdministrator || this.Roles.IsSalesAccountManager);
-
-                case "spareParts":
-                case "workOrders":
-                case "timeEntries":
-                case "inventoryTransactions":
-                    return isLoggedIn && (this.Roles.IsAdministrator || this.Roles.IsLocalAdministrator);
-
-                case "purchaseInvoices":
-                case "inventoryItems":
-                case "serialisedItems":
-                case "productCategories":
+                case "people":
+                case "medias":
                     return isLoggedIn && (this.Roles.IsAdministrator);
 
                 default:
                     throw new Exception($"Unhandled control with id {controlId}");
-
             }
         }
 

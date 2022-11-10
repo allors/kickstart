@@ -8,7 +8,6 @@ namespace Allors.Database.Server.Controllers
     using System.Threading.Tasks;
     using Allors.Protocol.Json.Auth;
     using Allors.Security;
-    using Allors.Server;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;

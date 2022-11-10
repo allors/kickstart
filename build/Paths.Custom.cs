@@ -16,9 +16,9 @@ public partial class Paths
     public AbsolutePath DotnetDatabaseResourcesCustom => DotnetDatabaseResources / "Custom";
 
     public AbsolutePath DotnetWorkspace => Dotnet / "Workspace";
-    public AbsolutePath DotnetWorkspaceExcel => DotnetWorkspace / "Aviation";
+    public AbsolutePath DotnetWorkspaceExcel => DotnetWorkspace / "Kickstart";
     public AbsolutePath CSharpWorkspaceExcelConfig => DotnetWorkspaceExcel / "config";
-    public AbsolutePath CSharpWorkspaceExcelProject => DotnetWorkspaceExcel / "Aviation.csproj";
+    public AbsolutePath CSharpWorkspaceExcelProject => DotnetWorkspaceExcel / "Kickstart.csproj";
 
     // Typescript
     public AbsolutePath Typescript => Root / "typescript";

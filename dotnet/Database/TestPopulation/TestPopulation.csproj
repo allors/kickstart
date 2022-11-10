@@ -1,81 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>Allors.Domain</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Allors.Domain</RootNamespace>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="..\..\..\Allors\dotnet\Apps\Database\TestPopulation\Apps*\**\*.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Bogus" Version="34.0.2" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\TestPopulation\apps\builders\order\salesorderitembuilderextensions.cs" />
-    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\TestPopulation\apps\builders\product\ordertermbuilderextensions.cs" />
-    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\TestPopulation\apps\builders\product\quoteitembuilderextensions.cs" />
-    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\TestPopulation\apps\factories\organisationextensions.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Domain\Domain.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\Brands\MULAG.png" />
-    <None Remove="Resources\Brands\TLD.jpg" />
-    <None Remove="Resources\ProductCategories\ACU, ASU, GPU.png" />
-    <None Remove="Resources\ProductCategories\PUSHBACKS &amp; TRACTORS.png" />
-    <None Remove="Resources\Products\image-not-found.jpg" />
-    <None Remove="Resources\Products\MULAG COMET10A.jpg" />
-    <None Remove="Resources\Products\MULAG COMET12A.jpg" />
-    <None Remove="Resources\Products\TLD 808-DUP.jpg" />
-    <None Remove="Resources\Products\TLD MX450.jpg" />
-    <None Remove="Resources\Products\TLD TMX100.jpg" />
-    <None Remove="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\ACUT001 - PM record.pdf" />
-    <None Remove="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\ACUT001-CM record.pdf" />
-    <None Remove="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\AV10652_0.jpg" />
-    <None Remove="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\AV10652_1.jpg" />
-    <None Remove="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\AV10652_2.jpg" />
-    <None Remove="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10653\AV10653_0.jpg" />
-    <None Remove="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10653\AV10653_1.jpg" />
-    <None Remove="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_0.jpg" />
-    <None Remove="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_1.jpg" />
-    <None Remove="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_2.jpg" />
-    <None Remove="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_3.jpg" />
-    <None Remove="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_4.jpg" />
-    <None Remove="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_5.jpg" />
-    <None Remove="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\Technical- TLD TMX-100_datasheet.pdf" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Resources\allors.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Brands\MULAG.png" />
-    <EmbeddedResource Include="Resources\Brands\TLD.jpg" />
-    <EmbeddedResource Include="Resources\ProductCategories\ACU, ASU, GPU.png" />
-    <EmbeddedResource Include="Resources\ProductCategories\PUSHBACKS &amp; TRACTORS.png" />
-    <EmbeddedResource Include="Resources\Products\image-not-found.jpg" />
-    <EmbeddedResource Include="Resources\Products\MULAG COMET10A.jpg" />
-    <EmbeddedResource Include="Resources\Products\MULAG COMET12A.jpg" />
-    <EmbeddedResource Include="Resources\Products\TLD 808-DUP.jpg" />
-    <EmbeddedResource Include="Resources\Products\TLD MX450.jpg" />
-    <EmbeddedResource Include="Resources\Products\TLD TMX100.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\ACUT001 - PM record.pdf" />
-    <EmbeddedResource Include="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\ACUT001-CM record.pdf" />
-    <EmbeddedResource Include="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\AV10652_0.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\AV10652_1.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10652\AV10652_2.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10653\AV10653_0.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\ACU\WIDE BODY DIESEL\TLD 808-DUP AV10653\AV10653_1.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_0.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_1.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_2.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_3.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_4.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\AV11352_5.jpg" />
-    <EmbeddedResource Include="Resources\SerialisedItems\PUSHBACK TRACTOR\NARROW BODY\TLD TMX100 AV11352\Technical- TLD TMX-100_datasheet.pdf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Bogus" Version="34.0.2" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\allors.png" />
+	</ItemGroup>
 </Project>

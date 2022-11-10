@@ -57,7 +57,7 @@ namespace Commands
                 transaction.Derive();
                 transaction.Commit();
 
-                new OldSetup(transaction).Demo();
+                new TestPopulation(transaction).ForDemo();
 
                 transaction.Derive();
                 transaction.Commit();

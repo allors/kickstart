@@ -23,8 +23,4 @@
     <Compile Include="..\..\..\Allors\dotnet\Apps\Database\Configuration\Apps*\**\*.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Aviation\" />
-  </ItemGroup>
-
 </Project>

@@ -27,9 +27,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Aviation\ErrorMessages.resx">
-      <Generator></Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Custom\ErrorMessages.resx">
       <Generator></Generator>
     </EmbeddedResource>

@@ -33,33 +33,35 @@ namespace Commands
 
         public int OnExecute(CommandLineApplication app)
         {
-            var noreplyEmail = this.Parent.Configuration["NoReplyEmail"];
+            this.Logger.Info("Begin");
 
-            using (var transaction = this.Parent.Database.CreateTransaction())
+            using var transaction = this.Parent.Database.CreateTransaction();
+
+            transaction.Services.Get<IUserService>().User = new AutomatedAgents(transaction).System;
+
+            // Do constantly stuff
+            // new X(transaction).Constantly(transaction);
+
+            var validation = transaction.Derive(false);
+
+            if (validation.HasErrors)
             {
-                this.Logger.Info("Begin creating messages");
+                foreach (var error in validation.Errors)
+                {
+                    this.Logger.Error("Validation error: {error}", error);
+                }
 
-                transaction.Services.Get<IUserService>().User = new AutomatedAgents(transaction).System;
-
-                var emailPolicy = new EmailPolicy(transaction);
-                emailPolicy.Immediate();
-
-                this.Logger.Info("End creating messages");
+                transaction.Rollback();
+            }
+            else
+            {
+                transaction.Commit();
             }
 
-            // TODO: KOEN
-            //using (var transaction = this.Parent.Database.CreateTransaction())
-            //{
-            //    this.Logger.Info("Begin sending messages");
+            transaction.Derive();
+            transaction.Commit();
 
-            //    transaction.Services.Get<IUserService>().User = new AutomatedAgents(transaction).System;
-
-            //    var emailMessages = new EmailMessages(transaction);
-            //    emailMessages.Send(noreplyEmail);
-            //    transaction.Commit();
-
-            //    this.Logger.Info("End sending messages");
-            //}
+            this.Logger.Info("End");
 
             return ExitCode.Success;
         }

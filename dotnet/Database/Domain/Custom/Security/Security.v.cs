@@ -26,8 +26,6 @@ namespace Allors.Database.Domain
         {
             this.CoreOnPreSetup();
             this.BaseOnPreSetup();
-            this.AppsOnPreSetup();
-            this.AviationOnPreSetup();
             this.CustomOnPreSetup();
         }
 
@@ -35,8 +33,6 @@ namespace Allors.Database.Domain
         {
             this.CoreOnPostSetup();
             this.BaseOnPostSetup();
-            this.AppsOnPostSetup();
-            this.AviationOnPostSetup();
             this.CustomOnPostSetup();
         }
     }

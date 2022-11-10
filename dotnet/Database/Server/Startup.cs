@@ -49,8 +49,8 @@ namespace Allors.Database.Server.Controllers
             services.AddSingleton(new WorkspaceConfig(new Dictionary<HostString, string>
             {
                 {new HostString("localhost", 5000), "Default"},
-                {new HostString("server.aviation.com"), "Default"},
-                {new HostString("server-test.aviation.com"), "Default"}
+                {new HostString("server.kickstart.com"), "Default"},
+                {new HostString("server-test.kickstart.com"), "Default"}
             }));
             services.AddScoped<IWorkspaceService, WorkspaceService>();
             services.AddScoped<ITransactionService, TransactionService>();
@@ -62,7 +62,7 @@ namespace Allors.Database.Server.Controllers
                     {
                         builder.WithOrigins(
                                 "http://localhost:4000", "http://localhost:4200", "http://localhost:8000",
-                                "https://aviation.dipu.com", "https://aviation-test.dipu.com")
+                                "https://kickstart.com", "https://test.kickstart.com")
                             .AllowAnyHeader()
                             .AllowAnyMethod()
                             .AllowCredentials();

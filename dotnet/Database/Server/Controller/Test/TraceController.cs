@@ -5,7 +5,6 @@
 
 namespace Allors.Database.Server.Controllers
 {
-    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
 
     public class TraceController : Controller

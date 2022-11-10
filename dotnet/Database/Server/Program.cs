@@ -2,18 +2,14 @@
 {
     using System;
     using System.IO;
-    using Allors.Server;
-    using Services;
     using Configuration;
-    using Database;
-    using Domain;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;
     using NLog.Web;
 
     public class Program
     {
-        private const string ConfigPath = "/config/aviation";
+        private const string ConfigPath = "/config/kickstart";
 
         public static void Main(string[] args)
         {

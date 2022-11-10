@@ -22,7 +22,7 @@ namespace Commands
     using Allors.Database.Configuration.Derivations.Default;
     using User = Allors.Database.Domain.User;
 
-    [Command(Description = "Aviation Commands")]
+    [Command(Description = "Kickstart Commands")]
     [Subcommand(
         typeof(Save),
         typeof(Load),
@@ -31,7 +31,6 @@ namespace Commands
         typeof(Populate),
         typeof(ResetSecurity),
         typeof(Print),
-        typeof(PrintProductQuote),
         typeof(Constantly),
         typeof(Daily),
         typeof(Hourly),
@@ -62,7 +61,7 @@ namespace Commands
             {
                 if (this.configuration == null)
                 {
-                    const string root = "/config/aviation";
+                    const string root = "/config/kickstart";
 
                     var configurationBuilder = new ConfigurationBuilder();
 

@@ -37,17 +37,35 @@ namespace Commands
 
         public int OnExecute(CommandLineApplication app)
         {
-            using (var transaction = this.Parent.Database.CreateTransaction())
+            this.Logger.Info("Begin");
+
+            using var transaction = this.Parent.Database.CreateTransaction();
+
+            transaction.Services.Get<IUserService>().User = new AutomatedAgents(transaction).System;
+
+            // Do hourly stuff
+            // new X(transaction).Hourly(transaction);
+
+            var validation = transaction.Derive(false);
+
+            if (validation.HasErrors)
             {
-                this.Logger.Info("Begin");
+                foreach (var error in validation.Errors)
+                {
+                    this.Logger.Error("Validation error: {error}", error);
+                }
 
-                transaction.Services.Get<IUserService>().User = new AutomatedAgents(transaction).System;
-
-                transaction.Derive();
-                transaction.Commit();
-
-                this.Logger.Info("End");
+                transaction.Rollback();
             }
+            else
+            {
+                transaction.Commit();
+            }
+
+            transaction.Derive();
+            transaction.Commit();
+
+            this.Logger.Info("End");
 
             return ExitCode.Success;
         }

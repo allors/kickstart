@@ -97,7 +97,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsForms", "dotnet\Work
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workspace.Configuration", "dotnet\Workspace\Configuration\Workspace.Configuration.csproj", "{335A7630-64B1-4070-A997-3D44A3AFE2BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aviation", "dotnet\Workspace\Aviation\Aviation.csproj", "{6BB1509B-BCBC-48AD-8AC3-2DC14E60CA84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kickstart", "dotnet\Workspace\Kickstart\Kickstart.csproj", "{6BB1509B-BCBC-48AD-8AC3-2DC14E60CA84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

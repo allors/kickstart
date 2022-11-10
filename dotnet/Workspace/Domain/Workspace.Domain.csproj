@@ -11,7 +11,6 @@
 	<ItemGroup>
 		<Compile Include="..\..\..\allors\dotnet\Core\Workspace\Domain\Core*\**\*.cs" />
 		<Compile Include="..\..\..\allors\dotnet\Base\Workspace\Domain\Base*\**\*.cs" />
-		<Compile Include="..\..\..\allors\dotnet\Apps\Workspace\Domain\Apps*\**\*.cs" />
 	</ItemGroup>
 
 	<ItemGroup>

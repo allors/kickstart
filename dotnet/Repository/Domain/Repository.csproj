@@ -8,7 +8,6 @@
     <Compile Include="..\..\..\Allors\dotnet\System\Repository\attributes\Attributes*\**\*.cs" />
     <Compile Include="..\..\..\Allors\dotnet\Core\Repository\Domain\Core*\**\*.cs" />
     <Compile Include="..\..\..\Allors\dotnet\Base\Repository\Domain\Base*\**\*.cs" />
-    <Compile Include="..\..\..\Allors\dotnet\Apps\Repository\Domain\Apps*\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -40,6 +40,15 @@ namespace Allors.Database.Domain
 
         private void CustomOnPostSetup(Config config)
         {
+            var databaseServices = this.transaction.Database.Services;
+            var m = databaseServices.Get<MetaPopulation>();
+
+            databaseServices.Get<IPermissions>().Sync(this.transaction);
+
+            if (this.Config.SetupSecurity)
+            {
+            }
+
         }
     }
 }

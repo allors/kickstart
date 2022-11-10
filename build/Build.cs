@@ -12,7 +12,7 @@ using Nuke.Common.Tools.Git;
 [UnsetVisualStudioEnvironmentVariables]
 partial class Build : NukeBuild
 {
-    private static bool IsProdMachine => EnvironmentInfo.MachineName.ToLower().Contains("aviation");
+    private static bool IsProdMachine => EnvironmentInfo.MachineName.ToLower().Contains("prod");
 
     private static bool IsStagingMachine => EnvironmentInfo.MachineName.ToLower().Contains("test");
 
@@ -22,13 +22,13 @@ partial class Build : NukeBuild
     [Parameter("Configuration to build - 'release' or 'debug'")]
     private Configuration Configuration => Environment.IsProduction || Environment.IsStaging ? Configuration.Release : Configuration.Debug;
 
-    public string Database => "aviation";
+    public string Database => "kickstart";
 
     public string User => "allors";
 
     public string Password => "fnmP378zmdxGtY!";
 
-    public string ExcelInstallUrl => IsProdMachine ? "https://aviation.dipu.com/excel/" : "https://aviation-test.dipu.com/excel/";
+    public string ExcelInstallUrl => IsProdMachine ? "https://kickstart.com/excel/" : "https://test.kickstart.com/excel/";
 
     Target Setup => _ => _
        .Executes(() =>
@@ -54,7 +54,7 @@ partial class Build : NukeBuild
             // Merge
             DotNetRun(v => v
             .SetProjectFile(Paths.CoreDatabaseMerge)
-            .SetApplicationArguments($"{Paths.CoreDatabaseResourcesCore} {Paths.BaseDatabaseResourcesBase} {Paths.AppsDatabaseResourcesApps} {Paths.AviationDatabaseResourcesAviation} {Paths.DotnetDatabaseResourcesCustom} {Paths.DotnetDatabaseResources}"));
+            .SetApplicationArguments($"{Paths.CoreDatabaseResourcesCore} {Paths.BaseDatabaseResourcesBase} {Paths.DotnetDatabaseResourcesCustom} {Paths.DotnetDatabaseResources}"));
 
             // Repository
             DotNetRun(v => v
@@ -90,7 +90,7 @@ partial class Build : NukeBuild
             .SetOutput(Paths.ArtifactsCustomServer));
 
             // Excel
-            //CopyFile(Paths.CustomWorkspaceExcelConfig / $"Aviation-AddIn64.{Environment}.xll.config", Paths.CustomWorkspaceExcel / $"Aviation-AddIn64.xll.config", FileExistsPolicy.Overwrite);
+            //CopyFile(Paths.CustomWorkspaceExcelConfig / $"Kickstart-AddIn64.{Environment}.xll.config", Paths.CustomWorkspaceExcel / $"Kickstart-AddIn64.xll.config", FileExistsPolicy.Overwrite);
 
             //MSBuild(v => v
             //    .SetConfiguration(Configuration)
@@ -99,7 +99,7 @@ partial class Build : NukeBuild
             //    .SetTargets("Build"));
 
             //DeleteDirectory(Paths.ArtifactsCustomExcelAddIn);
-            //CopyFileToDirectory(Paths.CustomWorkspaceExcel / "bin" / Configuration / "net48" / "Aviation-AddIn64-packed.xll", Paths.ArtifactsCustomExcelAddIn);
+            //CopyFileToDirectory(Paths.CustomWorkspaceExcel / "bin" / Configuration / "net48" / "Kickstart-AddIn64-packed.xll", Paths.ArtifactsCustomExcelAddIn);
 
             // Intranet
             NpmRun(s => s
@@ -167,7 +167,7 @@ partial class Build : NukeBuild
         .Executes(
             () =>
             {
-                using (var iis = new IIS(new string[] { "aviation-server", "aviation-intranet", "aviation-extranet" }))
+                using (var iis = new IIS(new string[] { "kickstart-server", "kickstart-intranet", "kickstart-extranet" }))
                 {
                     if (Environment.IsProduction)
                     {

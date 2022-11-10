@@ -18,8 +18,4 @@
 		<Compile Include="..\..\..\allors\dotnet\Core\Workspace\Excel\Core*\**\*.cs" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Sheets\" />
-	</ItemGroup>
-
 </Project>

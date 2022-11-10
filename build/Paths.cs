@@ -18,21 +18,21 @@ public partial class Paths
     public AbsolutePath ArtifactsCustomExcelAddIn => ArtifactsCustom / "ExcelAddIn";
 
     // Config
-    public AbsolutePath Config => (AbsolutePath)"/config/aviation";
+    public AbsolutePath Config => (AbsolutePath)"/config/kickstart";
     public AbsolutePath Population => Config / POPULATION;
 
     // Config templates
     public AbsolutePath ConfigCi => Root / "config" / "ci";
 
     // Staging
-    public AbsolutePath Staging => (AbsolutePath)"/staging/aviation";
+    public AbsolutePath Staging => (AbsolutePath)"/staging/kickstart";
     public AbsolutePath StagingPopulation => Staging / POPULATION;
 
     // Deploy
-    public AbsolutePath DeployCommands => (AbsolutePath)"/bin/aviation/Commands";
+    public AbsolutePath DeployCommands => (AbsolutePath)"/bin/kickstart/Commands";
     public AbsolutePath DeployCommandsExe => DeployCommands / "Commands.exe";
 
-    public AbsolutePath Sites => (AbsolutePath)"/sites/aviation";
+    public AbsolutePath Sites => (AbsolutePath)"/sites/kickstart";
     public AbsolutePath DeployIntranet => Sites / "intranet";
     public AbsolutePath DeployExtranet => Sites / "extranet";
     public AbsolutePath DeployServer => Sites / "server";

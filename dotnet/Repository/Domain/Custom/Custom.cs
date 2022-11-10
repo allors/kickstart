@@ -22,7 +22,7 @@
 using Allors.Repository.Attributes;
 
 [Domain("E6570DE5-3BE6-4B01-BF81-6BF2AE5FCB99")]
-[Extends("Aviation")]
+[Extends("Base")]
 public struct Custom
 {
 }

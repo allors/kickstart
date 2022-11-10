@@ -2,7 +2,7 @@ trigger:
 - main
 
 stages:
-- stage: Aviation
+- stage: Kickstart
   jobs:  
   - job: Test
     timeoutInMinutes: 240

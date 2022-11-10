@@ -52,25 +52,7 @@ namespace Allors.Database.Domain.Tests
             set => this.Time.Shift = value;
         }
 
-        protected Organisation InternalOrganisation => this.Transaction.Extent<Organisation>().First(v => v.IsInternalOrganisation && v.Name == "internalOrganisation");
-
-        protected Store Store => this.InternalOrganisation.StoresWhereInternalOrganisation.First();
-
-        protected Facility DefaultFacility => this.InternalOrganisation.FacilitiesWhereOwner.First();
-
         protected Person Administrator => (Person)new UserGroups(this.Transaction).Administrators.Members.First();
-
-        protected Person OrderProcessor => this.GetPersonByUserName("orderProcessor");
-
-        protected Person Purchaser => this.GetPersonByUserName("purchaser");
-
-        protected Person Employee => this.InternalOrganisation.ActiveEmployees.First();
-
-        protected Organisation Customer => (Organisation)this.InternalOrganisation.ActiveCustomers.First(v => v.GetType().Name.Equals(typeof(Organisation).Name));
-
-        protected Organisation Supplier => this.InternalOrganisation.ActiveSuppliers.First();
-
-        protected Organisation SubContractor => this.InternalOrganisation.ActiveSubContractors.First();
 
         public void Dispose()
         {
@@ -120,79 +102,6 @@ namespace Allors.Database.Domain.Tests
 
             this.Transaction.Derive();
             this.Transaction.Commit();
-
-            if (new Organisations(this.Transaction).FindBy(M.Organisation.Name, "internalOrganisation") == null)
-            {
-                var belgium = new Countries(this.Transaction).CountryByIsoCode["BE"];
-                var euro = belgium.Currency;
-
-                var bank = new BankBuilder(this.Transaction).WithCountry(belgium).WithName("ING België").WithBic("BBRUBEBB").Build();
-
-                var ownBankAccount = new OwnBankAccountBuilder(this.Transaction)
-                    .WithBankAccount(new BankAccountBuilder(this.Transaction).WithBank(bank)
-                                        .WithCurrency(euro)
-                                        .WithIban("BE68539007547034")
-                                        .WithNameOnAccount("Koen")
-                                        .Build())
-                    .WithDescription("Main bank account")
-                    .Build();
-
-                var postalAddress = new PostalAddressBuilder(this.Transaction).WithAddress1("Kleine Nieuwedijkstraat 2").WithLocality("Mechelen").WithCountry(belgium).Build();
-
-                var internalOrganisation = new OrganisationBuilder(this.Transaction)
-                    .WithIsInternalOrganisation(true)
-                    .WithName("internalOrganisation")
-                    .WithPreferredCurrency(new Currencies(this.Transaction).CurrencyByCode["EUR"])
-                    .WithInvoiceSequence(new InvoiceSequences(this.Transaction).EnforcedSequence)
-                    .WithRequestSequence(new RequestSequences(this.Transaction).EnforcedSequence)
-                    .WithQuoteSequence(new QuoteSequences(this.Transaction).EnforcedSequence)
-                    .WithCustomerShipmentSequence(new CustomerShipmentSequences(this.Transaction).EnforcedSequence)
-                    .WithCustomerReturnSequence(new CustomerReturnSequences(this.Transaction).EnforcedSequence)
-                    .WithPurchaseShipmentSequence(new PurchaseShipmentSequences(this.Transaction).EnforcedSequence)
-                    .WithPurchaseReturnSequence(new PurchaseReturnSequences(this.Transaction).EnforcedSequence)
-                    .WithDropShipmentSequence(new DropShipmentSequences(this.Transaction).EnforcedSequence)
-                    .WithIncomingTransferSequence(new IncomingTransferSequences(this.Transaction).EnforcedSequence)
-                    .WithOutgoingTransferSequence(new OutgoingTransferSequences(this.Transaction).EnforcedSequence)
-                    .WithWorkEffortSequence(new WorkEffortSequences(this.Transaction).EnforcedSequence)
-                    .WithPurchaseShipmentNumberPrefix("incoming shipmentno: ")
-                    .WithPurchaseInvoiceNumberPrefix("incoming invoiceno: ")
-                    .WithPurchaseOrderNumberPrefix("purchase orderno: ")
-                    .WithDefaultCollectionMethod(ownBankAccount)
-                    .Build();
-
-                this.Transaction.Derive();
-                this.Transaction.Commit();
-
-                new PartyContactMechanismBuilder(this.Transaction).WithParty(this.InternalOrganisation).WithContactMechanism(postalAddress).WithContactPurpose(new ContactMechanismPurposes(this.Transaction).GeneralCorrespondence).WithUseAsDefault(true).Build();
-
-                var facility = new FacilityBuilder(this.Transaction).WithFacilityType(new FacilityTypes(this.Transaction).Warehouse).WithName("facility").WithOwner(internalOrganisation).Build();
-
-                var paymentMethod = new PaymentMethods(this.Transaction).Extent().First();
-
-                new StoreBuilder(this.Transaction)
-                    .WithName("store")
-                    .WithInternalOrganisation(internalOrganisation)
-                    .WithCustomerShipmentNumberPrefix("shipmentno: ")
-                    .WithSalesInvoiceNumberPrefix("invoiceno: ")
-                    .WithSalesOrderNumberPrefix("orderno: ")
-                    .WithDefaultShipmentMethod(new ShipmentMethods(this.Transaction).Ground)
-                    .WithDefaultCarrier(new Carriers(this.Transaction).Fedex)
-                    .WithCreditLimit(500)
-                    .WithPaymentGracePeriod(10)
-                    .WithDefaultCollectionMethod(paymentMethod)
-                    .WithDefaultFacility(facility)
-                    .Build();
-
-                internalOrganisation.CreateB2BCustomer(this.Transaction.Faker());
-                internalOrganisation.CreateB2CCustomer(this.Transaction.Faker());
-                internalOrganisation.CreateSupplier(this.Transaction.Faker());
-                internalOrganisation.CreateSubContractor(this.Transaction.Faker());
-                internalOrganisation.CreateEmployee("letmein", this.Transaction.Faker());
-                internalOrganisation.CreateEmployee("letmein", this.Transaction.Faker());
-
-                this.Transaction.Derive();
-                this.Transaction.Commit();
-            }
         }
 
         private Person GetPersonByUserName(string userName) => new People(this.Transaction).FindBy(this.M.User.UserName, userName);

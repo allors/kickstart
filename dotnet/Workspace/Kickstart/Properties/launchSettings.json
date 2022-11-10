@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Excel Packed": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE",
+      "commandLineArgs": "Kickstart-AddIn64-packed.xll"
+    },
+    "Excel": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE",
+      "commandLineArgs": "Kickstart-AddIn64.xll"
+    }
+  }
+}

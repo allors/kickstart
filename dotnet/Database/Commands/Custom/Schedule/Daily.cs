@@ -35,173 +35,35 @@ namespace Commands
 
         public int OnExecute(CommandLineApplication app)
         {
-            using (var transaction = this.Parent.Database.CreateTransaction())
+            this.Logger.Info("Begin");
+
+            using var transaction = this.Parent.Database.CreateTransaction();
+
+            transaction.Services.Get<IUserService>().User = new AutomatedAgents(transaction).System;
+
+            // Do daily stuff
+            // new X(transaction).Daily(transaction);
+
+            var validation = transaction.Derive(false);
+
+            if (validation.HasErrors)
             {
-                //var timeService = session.ServiceProvider.GetRequiredService<ITimeService>();
-                //var newdate = new DateTime(2019, 12, 01, 0, 0, 0, DateTimeKind.Utc);
-                //var timeShift = newdate - session.Now();
-                //timeService.Shift = timeShift;
-
-                this.Logger.Info("Begin");
-
-                transaction.Services.Get<IUserService>().User = new AutomatedAgents(transaction).System;
-
-                this.Logger.Info("Begin creating messages");
-
-                var emailPolicy = new EmailPolicy(transaction);
-                emailPolicy.Daily();
-
-                this.Logger.Info("End creating messages");
-
-                RepeatingSalesInvoices.Daily(transaction);
-
-                var validation = transaction.Derive(false);
-
-                if (validation.HasErrors)
+                foreach (var error in validation.Errors)
                 {
-                    foreach (var error in validation.Errors)
-                    {
-                        this.Logger.Error("Validation error: {error}", error);
-                    }
-
-                    transaction.Rollback();
-                }
-                else
-                {
-                    transaction.Commit();
+                    this.Logger.Error("Validation error: {error}", error);
                 }
 
-                transaction.Derive();
-                transaction.Commit();
-
-                RepeatingPurchaseInvoices.Daily(transaction);
-
-                validation = transaction.Derive(false);
-
-                if (validation.HasErrors)
-                {
-                    foreach (var error in validation.Errors)
-                    {
-                        this.Logger.Error("Validation error: {error}", error);
-                    }
-
-                    transaction.Rollback();
-                }
-                else
-                {
-                    transaction.Commit();
-                }
-
-                transaction.Derive();
-                transaction.Commit();
-
-                Parties.Daily(transaction);
-
-                validation = transaction.Derive(false);
-
-                if (validation.HasErrors)
-                {
-                    foreach (var error in validation.Errors)
-                    {
-                        this.Logger.Error("Validation error: {error}", error);
-                    }
-
-                    transaction.Rollback();
-                }
-                else
-                {
-                    transaction.Commit();
-                }
-
-                transaction.Derive();
-                transaction.Commit();
-
-                Organisations.Daily(transaction);
-
-                validation = transaction.Derive(false);
-
-                if (validation.HasErrors)
-                {
-                    foreach (var error in validation.Errors)
-                    {
-                        this.Logger.Error("Validation error: {error}", error);
-                    }
-
-                    transaction.Rollback();
-                }
-                else
-                {
-                    transaction.Commit();
-                }
-
-                transaction.Derive();
-                transaction.Commit();
-
-                People.Daily(transaction);
-
-                validation = transaction.Derive(false);
-
-                if (validation.HasErrors)
-                {
-                    foreach (var error in validation.Errors)
-                    {
-                        this.Logger.Error("Validation error: {error}", error);
-                    }
-
-                    transaction.Rollback();
-                }
-                else
-                {
-                    transaction.Commit();
-                }
-
-                transaction.Derive();
-                transaction.Commit();
-
-                Parts.Daily(transaction);
-
-                validation = transaction.Derive(false);
-
-                if (validation.HasErrors)
-                {
-                    foreach (var error in validation.Errors)
-                    {
-                        this.Logger.Error("Validation error: {error}", error);
-                    }
-
-                    transaction.Rollback();
-                }
-                else
-                {
-                    transaction.Commit();
-                }
-
-                transaction.Derive();
-                transaction.Commit();
-
-                PurchaseOrders.Daily(transaction);
-
-                validation = transaction.Derive(false);
-
-                if (validation.HasErrors)
-                {
-                    foreach (var error in validation.Errors)
-                    {
-                        this.Logger.Error("Validation error: {error}", error);
-                    }
-
-                    transaction.Rollback();
-                }
-                else
-                {
-                    transaction.Commit();
-                }
-
-                transaction.Derive();
-                transaction.Commit();
-
-                this.Logger.Info("End");
+                transaction.Rollback();
             }
+            else
+            {
+                transaction.Commit();
+            }
+
+            transaction.Derive();
+            transaction.Commit();
+
+            this.Logger.Info("End");
 
             return ExitCode.Success;
         }

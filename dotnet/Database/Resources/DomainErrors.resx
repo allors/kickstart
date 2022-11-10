@@ -139,7 +139,7 @@
     <value>{0} is not unique</value>
   </data>
   <data name="InvalidNewPassword" xml:space="preserve">
-    Your password must be at least 8 characters long, contain at least one number and one special character and have a mixture of uppercase and lowercase letters.
+    <value>New password does not meet complexity requirements</value>
   </data>
   <data name="InvalidPassword" xml:space="preserve">
     <value>Invalid password.</value>
