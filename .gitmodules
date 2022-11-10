@@ -1,0 +1,8 @@
+[submodule "allors"]
+	path = allors
+	url = https://github.com/Allors/allors3.git
+	branch = master
+[submodule "excel"]
+	path = excel
+	url = https://github.com/Allors/excel.git
+	branch = master
