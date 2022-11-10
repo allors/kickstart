@@ -1,0 +1,79 @@
+<div class="container-fluid" *ngIf="object">
+  <div class="row">
+    <a-mat-static
+      *ngIf="serialisedItem"
+      class="col-md"
+      [object]="object"
+      [roleType]="m.WorkEffortFixedAssetAssignment.FixedAsset"
+      display="DisplayName"
+      label="Asset"
+    ></a-mat-static>
+    <a-mat-autocomplete
+      *ngIf="!serialisedItem && !externalCustomer"
+      class="col-md"
+      [object]="object"
+      [roleType]="m.WorkEffortFixedAssetAssignment.FixedAsset"
+      [filter]="serialisedItemsFilter.create(allors.context)"
+      (changed)="fixedAssetSelected($event)"
+      display="DisplayName"
+      label="Asset"
+    ></a-mat-autocomplete>
+    <div *ngIf="!serialisedItem && externalCustomer" class="col">
+      <div class="row">
+        <a-mat-autocomplete
+          *ngIf="!serialisedItem && externalCustomer && fixedAssets"
+          class="col-md"
+          [object]="object"
+          [roleType]="m.WorkEffortFixedAssetAssignment.FixedAsset"
+          [options]="fixedAssets"
+          display="DisplayName"
+          label="Asset"
+        ></a-mat-autocomplete>
+        <button
+          mat-mini-fab
+          color="accent"
+          type="button"
+          (click)="addVehicle = !addVehicle"
+        >
+          <mat-icon *ngIf="!addVehicle">add</mat-icon>
+          <mat-icon *ngIf="addVehicle">close</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-12 pb-3" *ngIf="addVehicle">
+      <mat-card>
+        <mat-card-header>Add new Vehicle</mat-card-header>
+        <mat-card-content>
+          <vehicle-inline
+            (cancelled)="addVehicle = false"
+            (saved)="vehicleAdded($event); addVehicle = false"
+          >
+          </vehicle-inline>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <a-mat-input
+      *ngIf="isSerialisedItem"
+      class="col-md"
+      [object]="object"
+      [roleType]="m.WorkEffortFixedAssetAssignment.OperatingHours"
+    ></a-mat-input>
+    <a-mat-input
+      *ngIf="isVehicle"
+      class="col-md"
+      [object]="vehicle"
+      [roleType]="m.Vehicle.Mileage"
+    ></a-mat-input>
+  </div>
+
+  <div class="row">
+    <a-mat-textarea
+      class="col-md"
+      [object]="object"
+      [roleType]="m.WorkEffortFixedAssetAssignment.Comment"
+    ></a-mat-textarea>
+  </div>
+</div>

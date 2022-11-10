@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\allors\dotnet\Core\Workspace\Meta\Core*\**\*.cs" />
+    <Compile Include="..\..\..\allors\dotnet\Base\Workspace\Meta\Base*\**\*.cs" />
+    <Compile Include="..\..\..\allors\dotnet\Apps\Workspace\Meta\Apps*\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\allors\dotnet\System\Workspace\Allors.Workspace.Meta\Allors.Workspace.Meta.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Scaffold.Command": {
+      "commandName": "Project",
+      "commandLineArgs": "--output ../../../../e2e/generated ../../../../../../modules/libs/apps-intranet/workspace/angular-material/src/lib ../../../../../../modules/libs/aviation-intranet/workspace/angular-material/src/lib ../../../../../../modules/libs/intranet/workspace/angular-material/src/lib"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<div class="container-fluid" *ngIf="object">
+  <div class="row">
+    <a-mat-datepicker
+      class="col-md-6"
+      [object]="object"
+      [roleType]="m.MaintenanceAgreement.FromDate"
+    ></a-mat-datepicker>
+    <a-mat-datepicker
+      class="col-md-6"
+      [object]="object"
+      [roleType]="m.MaintenanceAgreement.ThroughDate"
+    ></a-mat-datepicker>
+  </div>
+
+  <div class="row">
+    <a-mat-association-autocomplete
+      class="col-md"
+      [object]="object"
+      [associationType]="m.Agreement.PartyRelationshipWhereAgreement"
+      [filter]="customerRelationshipsFilter.create(allors.context)"
+      display="CustomerName"
+      label="Customer"
+    ></a-mat-association-autocomplete>
+  </div>
+
+  <div class="row">
+    <a-mat-select
+      class="col-md"
+      [object]="object"
+      [roleType]="m.MaintenanceAgreement.WorkEffortType"
+      [options]="workEffortTypes"
+      display="Name"
+      label="Type"
+    ></a-mat-select>
+  </div>
+
+  <div class="row">
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.MaintenanceAgreement.FixedPrice"
+    ></a-mat-input>
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.MaintenanceAgreement.HourlyRate"
+    ></a-mat-input>
+  </div>
+
+  <div class="row">
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.MaintenanceAgreement.PartSurchargePercentage"
+    ></a-mat-input>
+  </div>
+</div>

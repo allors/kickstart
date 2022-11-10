@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Allors.Domain.AccessControl" Collapsed="true" HideInheritanceLine="true">
+    <Position X="5.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAACAEAAAAAAAAAAAAIAAAAAAAAIAQAA=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SubjectGroups" />
+      <Property Name="Subjects" />
+      <Property Name="Role" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Allors.Domain.Role" Collapsed="true" HideInheritanceLine="true">
+    <Position X="5" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Permissions" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Allors.Domain.UserGroup" Collapsed="true" HideInheritanceLine="true">
+    <Position X="8.75" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Members" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Allors.Domain.User" Collapsed="true" HideInheritanceLine="true">
+    <Position X="8.75" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACBAAAgAACAAAAAAAQAABAAAAXgAAAAAQAQCBICCAA=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Allors.Domain.Permission" Collapsed="true" HideInheritanceLine="true">
+    <Position X="5" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Allors.Domain.SecurityToken" Collapsed="true">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccessControls" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Allors.Domain.Object" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DeniedPermissions" />
+      <Property Name="SecurityTokens" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Allors.Domain.Singleton" Collapsed="true" HideInheritanceLine="true">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAQAAAIAAAggAAAAiAAAAAAAAAg=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

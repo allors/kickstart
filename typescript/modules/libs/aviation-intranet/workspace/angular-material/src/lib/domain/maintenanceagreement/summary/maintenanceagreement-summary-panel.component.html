@@ -1,0 +1,19 @@
+<mat-card *ngIf="agreement">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon style="font-size: 36px">business</mat-icon>
+    </div>
+    <mat-card-title>{{ agreement.DisplayName }}</mat-card-title>
+
+    <mat-card-subtitle>
+      <div>
+        {{ agreement.CustomerName }}
+      </div>
+      <div>
+        {{ agreement.WorkEffortTypeDisplayName }}
+      </div>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-actions> </mat-card-actions>
+</mat-card>

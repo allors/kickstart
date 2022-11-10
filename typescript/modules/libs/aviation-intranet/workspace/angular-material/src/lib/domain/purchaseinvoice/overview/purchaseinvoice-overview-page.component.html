@@ -1,0 +1,39 @@
+<div class="a-main">
+  <div class="a-breadcrumb container-fluid mat-elevation-z4">
+    <div class="row">
+      <div class="col">
+        <a (click)="navigation.list(m.PurchaseInvoice)" style="cursor: pointer"
+          >PurchaseInvoices</a
+        >
+        / {{ invoice?.InvoiceNumber }}
+      </div>
+    </div>
+  </div>
+
+  <div class="a-overview container">
+    <div class="a-content row">
+      <div class="col-md-4 mb-3">
+        <purchaseinvoice-summary-panel></purchaseinvoice-summary-panel>
+      </div>
+
+      <div class="col-md-8 align-self-stretch">
+        <a-mat-dyn-view-detail-panel></a-mat-dyn-view-detail-panel>
+        <a-mat-dyn-edit-detail-panel></a-mat-dyn-edit-detail-panel>
+
+        <a-mat-dyn-view-extent-panel
+          [init]="m.PurchaseInvoiceItem.PurchaseInvoiceWherePurchaseInvoiceItem"
+        ></a-mat-dyn-view-extent-panel>
+        <a-mat-dyn-edit-extent-panel
+          [init]="m.PurchaseInvoiceItem.PurchaseInvoiceWherePurchaseInvoiceItem"
+          [creatableFn]="canWrite"
+        ></a-mat-dyn-edit-extent-panel>
+
+        <purchaseorderinvoice-panel-view></purchaseorderinvoice-panel-view>
+        <purchaseorderinvoice-panel-edit></purchaseorderinvoice-panel-edit>
+
+        <payment-panel-view></payment-panel-view>
+        <payment-panel-edit></payment-panel-edit>
+      </div>
+    </div>
+  </div>
+</div>

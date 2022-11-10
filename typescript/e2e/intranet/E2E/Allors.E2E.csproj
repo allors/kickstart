@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Playwright" Version="1.22.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Include="..\..\..\..\allors\typescript\e2e\base\E2E\base*\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.osx.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\dotnet\Database\Domain\Domain.csproj" />
+  </ItemGroup>
+
+
+</Project>

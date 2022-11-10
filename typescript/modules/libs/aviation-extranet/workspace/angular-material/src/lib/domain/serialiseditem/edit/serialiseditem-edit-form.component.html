@@ -1,0 +1,172 @@
+<mat-tab-group>
+  <mat-tab label="General">
+    <div class="container-fluid">
+      <div class="row pt-3">
+        <a-mat-static
+          class="col-md-6"
+          [object]="object"
+          [roleType]="m.SerialisedItem.ItemNumber"
+        >
+        </a-mat-static>
+        <a-mat-static
+          class="col-md"
+          [object]="object"
+          [roleType]="m.SerialisedItem.SerialNumber"
+        >
+        </a-mat-static>
+      </div>
+
+      <div class="row">
+        <a-mat-static
+          class="col-md"
+          [object]="object"
+          [roleType]="m.SerialisedItem.DisplayName"
+        ></a-mat-static>
+      </div>
+
+      <div class="row">
+        <a-mat-static
+          class="col-md"
+          [object]="object"
+          [roleType]="m.SerialisedItem.ProductCategoriesDisplayName"
+        ></a-mat-static>
+        <a-mat-input
+          class="col-md"
+          [object]="object"
+          [roleType]="m.SerialisedItem.CustomerReferenceNumber"
+          label="Fleet Code"
+        ></a-mat-input>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Characteristics">
+    <div class="row pt-3"></div>
+
+    <div class="container-fluid">
+      <div
+        *ngFor="
+          let productCharacteristicValue of object.SerialisedItemCharacteristics
+        "
+      >
+        <div class="row">
+          <a-mat-static
+            class="col-md"
+            *ngIf="
+              productCharacteristicValue.SerialisedItemCharacteristicType
+                .UnitOfMeasure
+            "
+            [object]="productCharacteristicValue"
+            [roleType]="m.SerialisedItemCharacteristic.Value"
+            [label]="
+              productCharacteristicValue.SerialisedItemCharacteristicType.Name +
+              ' (' +
+              productCharacteristicValue.SerialisedItemCharacteristicType
+                .UnitOfMeasure.Name +
+              ')'
+            "
+          >
+          </a-mat-static>
+        </div>
+      </div>
+
+      <div
+        class="row"
+        *ngFor="
+          let productCharacteristicValue of object.SerialisedItemCharacteristics
+        "
+      >
+        <a-mat-static
+          class="col-md"
+          *ngIf="
+            !productCharacteristicValue.SerialisedItemCharacteristicType
+              .UnitOfMeasure
+          "
+          [object]="productCharacteristicValue"
+          [roleType]="m.SerialisedItemCharacteristic.Value"
+          [label]="
+            productCharacteristicValue.SerialisedItemCharacteristicType.Name
+          "
+          class="col-md-12"
+        >
+        </a-mat-static>
+      </div>
+
+      <div class="row">
+        <a-mat-static
+          class="col-md"
+          [object]="object"
+          [roleType]="m.SerialisedItem.ChassisBrand"
+        >
+        </a-mat-static>
+      </div>
+
+      <div class="row">
+        <a-mat-static
+          class="col-md"
+          [object]="object"
+          [roleType]="m.SerialisedItem.ChassisModel"
+        >
+        </a-mat-static>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Images">
+    <mat-tab-group>
+      <mat-tab label="Primary">
+        <div class="container-fluid">
+          <div class="row pt-3">
+            <a-mat-file
+              class="col-md-12"
+              [object]="object"
+              [roleType]="m.SerialisedItem.PrimaryPhoto"
+              accept="image/*"
+              [disabled]="true"
+            ></a-mat-file>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Secondary">
+        <div class="container-fluid">
+          <div class="row pt-3">
+            <a-mat-files
+              class="col-md-12"
+              [object]="object"
+              [roleType]="m.SerialisedItem.SecondaryPhotos"
+              accept="image/*"
+              [disabled]="true"
+            ></a-mat-files>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Additional">
+        <div class="container-fluid">
+          <div class="row pt-3">
+            <a-mat-files
+              class="col-md-12"
+              [object]="object"
+              [roleType]="m.SerialisedItem.AdditionalPhotos"
+              accept="image/*"
+              [disabled]="true"
+            ></a-mat-files>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+
+  <mat-tab label="Documents">
+    <div class="container-fluid">
+      <div class="row pt-3">
+        <a-mat-files
+          class="col-md-12"
+          [object]="object"
+          [roleType]="m.SerialisedItem.PublicElectronicDocuments"
+          accept="image/*"
+          [disabled]="true"
+        ></a-mat-files>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,114 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Allors.Documents" Version="1.0.4" />
+    <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="DataUtils.DataUrl" Version="1.0.2" />
+    <PackageReference Include="Markdig" Version="0.30.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
+    <PackageReference Include="MimeTypesMap" Version="1.0.8" />
+    <PackageReference Include="NCalc.NetCore" Version="1.0.1" />
+    <PackageReference Include="NLog" Version="5.0.4" />
+    <PackageReference Include="SkiaSharp" Version="2.88.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\Allors\dotnet\Core\Database\Domain\Core*\**\*.cs" />
+    <Compile Include="..\..\..\Allors\dotnet\Base\Database\Domain\Base*\**\*.cs" />
+    <Compile Include="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps*\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="..\..\..\Allors\Base\Database\Domain\Base\Print\ProductQuote\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\apps\common\versionedextensions.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Derivations\Product\InventoryItemPartDisplayNameDerivation.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\ProductQuote\BillToModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\ProductQuote\IssuerModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\ProductQuote\Model.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\ProductQuote\OrderAdjustmentModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\ProductQuote\QuoteItemModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\ProductQuote\QuoteModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\ProductQuote\ReceiverModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\ProductQuote\RequestModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\Proposal\Model.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\Proposal\QuoteItemModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\Proposal\QuoteModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\apps\print\salesinvoice\invoiceitemmodel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\apps\print\salesinvoice\invoicemodel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\apps\print\salesinvoice\model.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\WorkTask\CustomerModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\Worktask\FixedAssetAssignmentModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\WorkTask\Model.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Print\WorkTask\WorkTaskModel.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Relation\Facility.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Relation\Salutation.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Rules\Product\InventoryItemPartDisplayNameRule.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\apps\rules\relations\organisationcontactusergrouprule.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\apps\rules\relations\personemailfrequencyrule.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\Rules\WorkEffort\WorkEffortFixedAssetAssignmentDelegatedAccessRule.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\Apps\WorkEffort\WorkEffortTypeKinds.cs" />
+    <Compile Remove="..\..\..\Allors\dotnet\Apps\Database\Domain\apps\workflow\EmailPolicy.cs" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\watermark.png" />
+    <None Remove="Templates\allors.png" />
+    <None Remove="Templates\ARM-Logo.jpg" />
+    <None Remove="Templates\Aviation-Logo.jpg" />
+    <None Remove="Templates\Logistics4You.png" />
+    <None Remove="Templates\NonUnifiedPartBarcodePrint.odt" />
+    <None Remove="Templates\No_image_available.svg" />
+    <None Remove="Templates\PartQuote.odt" />
+    <None Remove="Templates\ProductQuote.odt" />
+    <None Remove="Templates\Proposal.odt" />
+    <None Remove="Templates\PurchaseInvoice.odt" />
+    <None Remove="Templates\PurchaseOrder.odt" />
+    <None Remove="Templates\SalesInvoice.odt" />
+    <None Remove="Templates\SalesOrder.odt" />
+    <None Remove="Templates\SparePartsBarcode.odt" />
+    <None Remove="Templates\StatementOfWork.odt" />
+    <None Remove="Templates\WorkOrderSalesInvoice.odt" />
+    <None Remove="Templates\WorkTask.odt" />
+    <None Remove="Templates\WorkTaskWorker.odt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\watermark.png" />
+    <EmbeddedResource Include="Templates\allors.png" />
+    <EmbeddedResource Include="Templates\ARM-Logo.jpg" />
+    <EmbeddedResource Include="Templates\Aviation-Logo.jpg" />
+    <EmbeddedResource Include="Templates\Logistics4You.png" />
+    <EmbeddedResource Include="Templates\NonUnifiedPartBarcodePrint.odt" />
+    <EmbeddedResource Include="Templates\No_image_available.svg" />
+    <EmbeddedResource Include="Templates\PartQuote.odt" />
+    <EmbeddedResource Include="Templates\ProductQuote.odt" />
+    <EmbeddedResource Include="Templates\Proposal.odt" />
+    <EmbeddedResource Include="Templates\PurchaseInvoice.odt" />
+    <EmbeddedResource Include="Templates\PurchaseOrder.odt" />
+    <EmbeddedResource Include="Templates\SalesInvoice.odt" />
+    <EmbeddedResource Include="Templates\SalesOrder.odt" />
+    <EmbeddedResource Include="Templates\StatementOfWork.odt" />
+    <EmbeddedResource Include="Templates\WorkOrderSalesInvoice.odt" />
+    <EmbeddedResource Include="Templates\WorkTask.odt" />
+    <EmbeddedResource Include="Templates\WorkTaskWorker.odt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="generated\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\allors\dotnet\System\Database\allors.database.workspace.json\allors.database.workspace.json.csproj" />
+    <ProjectReference Include="..\..\..\allors\dotnet\System\protocol\allors.protocol.json.systemtext\Allors.Protocol.Json.SystemText.csproj" />
+    <ProjectReference Include="..\Meta\Meta.csproj" />
+    <ProjectReference Include="..\Resources\Resources.csproj" />
+  </ItemGroup>
+</Project>

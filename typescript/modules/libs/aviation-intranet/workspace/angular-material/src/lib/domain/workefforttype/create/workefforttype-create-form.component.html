@@ -1,0 +1,69 @@
+<div class="container-fluid" *ngIf="object">
+  <div class="row">
+    <a-mat-datepicker
+      class="col-md-6"
+      [object]="object"
+      [roleType]="m.WorkEffortType.FromDate"
+    ></a-mat-datepicker>
+    <a-mat-datepicker
+      class="col-md-6"
+      [object]="object"
+      [roleType]="m.WorkEffortType.ThroughDate"
+    ></a-mat-datepicker>
+  </div>
+
+  <div class="row">
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.WorkEffortType.Name"
+    ></a-mat-input>
+  </div>
+
+  <div class="row">
+    <a-mat-textarea
+      class="col-md-12"
+      [object]="object"
+      [roleType]="m.WorkEffortType.Description"
+    ></a-mat-textarea>
+  </div>
+
+  <div class="row">
+    <a-mat-autocomplete
+      class="col-md"
+      [object]="object"
+      [roleType]="m.WorkEffortType.UnifiedGood"
+      [filter]="serialisedgoodsFilter.create(allors.context)"
+      display="DisplayName"
+      label="Product"
+    ></a-mat-autocomplete>
+    <a-mat-select
+      class="col-md"
+      [object]="object"
+      [roleType]="m.WorkEffortType.ProductCategory"
+      [options]="categories"
+      display="DisplayName"
+    ></a-mat-select>
+  </div>
+
+  <div class="row">
+    <a-mat-input
+      class="col-md-6"
+      [object]="object"
+      [roleType]="m.WorkEffortType.StandardWorkHours"
+    ></a-mat-input>
+  </div>
+
+  <div class="row">
+    <a-mat-input
+      class="col-md-6"
+      [object]="object"
+      [roleType]="m.WorkEffortType.MonthlyTimeInterval"
+    ></a-mat-input>
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.WorkEffortType.OperatingHoursInterval"
+    ></a-mat-input>
+  </div>
+</div>

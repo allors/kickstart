@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="..\..\..\allors\dotnet\system\database\Allors.Database.Meta.Props\props*\**\*.cs" />
+		<Compile Include="..\..\..\allors\dotnet\Core\Database\Meta\Core*\**\*.cs" />
+		<Compile Include="..\..\..\allors\dotnet\Base\Database\Meta\Base*\**\*.cs" />
+		<Compile Include="..\..\..\allors\dotnet\Apps\Database\Meta\Apps*\**\*.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\allors\dotnet\System\Database\Allors.Database\Allors.Database.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Workspace.Domain.csproj" />
+    <ProjectReference Include="..\excel\excel.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="..\..\..\allors\dotnet\Core\Workspace\Configuration\Core*\**\*.cs" />
+	</ItemGroup>
+
+</Project>

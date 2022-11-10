@@ -1,0 +1,17 @@
+<mat-card *ngIf="workEffortType">
+  <mat-card-header (click)="toggle()" style="cursor: pointer">
+    <div mat-card-avatar>
+      <mat-icon style="font-size: 36px">business</mat-icon>
+    </div>
+    <mat-card-title>{{ workEffortType.Name }}</mat-card-title>
+
+    <mat-card-subtitle>
+      <div>
+        {{ workEffortType.UnifiedGood?.DisplayName }}
+        {{ workEffortType.ProductCategory?.DisplayName }}
+      </div>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-actions> </mat-card-actions>
+</mat-card>

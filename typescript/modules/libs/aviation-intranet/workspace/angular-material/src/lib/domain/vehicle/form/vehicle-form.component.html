@@ -1,0 +1,43 @@
+<div class="container-fluid" *ngIf="object">
+  <div class="row">
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.Vehicle.Make"
+    ></a-mat-input>
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.Vehicle.Model"
+    ></a-mat-input>
+  </div>
+
+  <div class="row">
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.Vehicle.LicensePlateNumber"
+    ></a-mat-input>
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.Vehicle.ChassisNumber"
+    ></a-mat-input>
+  </div>
+
+  <div class="row">
+    <a-mat-input
+      class="col-md"
+      [object]="object"
+      [roleType]="m.Vehicle.Mileage"
+    ></a-mat-input>
+    <a-mat-autocomplete
+      class="col-md"
+      [object]="object"
+      [roleType]="m.Vehicle.OwnedBy"
+      [filter]="partiesFilter.create(allors.context)"
+      display="DisplayName"
+    >
+    </a-mat-autocomplete>
+  </div>
+</div>

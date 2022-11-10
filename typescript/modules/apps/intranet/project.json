@@ -1,0 +1,135 @@
+{
+  "name": "intranet",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/intranet/src",
+  "prefix": "allors",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "../../artifacts/custom/intranet",
+        "index": "apps/intranet/src/index.html",
+        "main": "apps/intranet/src/main.ts",
+        "polyfills": "apps/intranet/src/polyfills.ts",
+        "tsConfig": "apps/intranet/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/intranet/src/favicon.ico", "apps/intranet/src/assets"],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/intranet/src/styles.scss",
+          "./node_modules/easymde/dist/easymde.min.css"
+        ],
+        "scripts": [],
+        "allowedCommonJsDependencies": [
+          "zone.js",
+          "jsnlog",
+          "markdown.component",
+          "easymde",
+          "codemirror",
+          "codemirror-spell-checker",
+          "angular-calendar",
+          "calendar-utils/date-adapters/date-fns",
+          "@mattlewis92/dom-autoscroller",
+          "dom-set",
+          "dom-plane"
+        ],
+        "preserveSymlinks": true
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "5mb",
+              "maximumError": "10mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/intranet/src/environments/environment.ts",
+              "with": "apps/intranet/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "staging": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "5mb",
+              "maximumError": "10mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/intranet/src/environments/environment.ts",
+              "with": "apps/intranet/src/environments/environment.staging.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "styles": [
+            "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+            "apps/intranet/src/styles.scss",
+            "./node_modules/easymde/dist/easymde.min.css"
+          ]
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "intranet:build:production",
+          "proxyConfig": "apps/intranet/proxy.conf.json"
+        },
+        "development": {
+          "browserTarget": "intranet:build:development",
+          "proxyConfig": "apps/intranet/proxy.conf.json"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "intranet:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/intranet/**/*.ts", "apps/intranet/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/intranet"],
+      "options": {
+        "jestConfig": "apps/intranet/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

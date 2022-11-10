@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Allors.Domain.Catalogue">
+    <Position X="2" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAABCAAASAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ProductCategories" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Allors.Domain.ProductCategory">
+    <Position X="5.5" Y="0.75" Width="1.75" />
+    <AssociationLine Name="SuperJacent" Type="Allors.Domain.ProductCategory" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="2.25" />
+        <Point X="5.25" Y="2.25" />
+        <Point X="5.25" Y="2.793" />
+        <Point X="5.5" Y="2.793" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgCAAAAAA0AASAAAAAAAAAAAIAAAEIAAg=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Parents" />
+      <Property Name="Children" />
+      <Property Name="AllProducts" />
+      <Property Name="SuperJacent" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Allors.Domain.Product">
+    <Position X="9" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAgBIBEQAQAgAAAAABAAAAQAABAAAAACAAIIMCAALgA=</HashCode>
+      <FileName>Generated\domain.g.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
