@@ -1,25 +1,6 @@
 <mat-card *ngIf="person">
   <mat-card-header (click)="toggle()" style="cursor: pointer">
-    <div mat-card-avatar>
-      <mat-icon *ngIf="!person.Picture" style="font-size: 36px"
-        >person</mat-icon
-      >
-
-      <div *ngIf="person.Picture">
-        <img mat-card-image [src]="src" />
-      </div>
-    </div>
     <mat-card-title>{{ person.DisplayName }}</mat-card-title>
-    <mat-card-subtitle>
-      <div>
-        {{ contactKindsText }}
-      </div>
-
-      <div *ngIf="person.Comment">
-        {{ person.Comment }}
-      </div>
-    </mat-card-subtitle>
-
     <mat-card-subtitle>
       <div>
         last modified:
@@ -30,20 +11,9 @@
   </mat-card-header>
 
   <mat-card-content>
-    <div *ngIf="organisationContactRelationships?.length > 0">
-      <div style="color: grey">Organisation</div>
-    </div>
-    <div
-      *ngFor="
-        let organisationContactRelationship of organisationContactRelationships
-      "
-      (click)="
-        navigation.overview(organisationContactRelationship.Organisation)
-      "
-      style="cursor: pointer"
-    >
-      <div>
-        {{ organisationContactRelationship.Organisation?.DisplayName }}
+    <div>
+      <div style="color: grey">
+        {{ person.TaskAssignmentsWhereUser.length }} tasks
       </div>
     </div>
   </mat-card-content>

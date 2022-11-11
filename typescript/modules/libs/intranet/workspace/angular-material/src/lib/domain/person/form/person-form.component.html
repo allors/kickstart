@@ -2,13 +2,6 @@
   <mat-tab label="General">
     <div class="container-fluid">
       <div class="row pt-3">
-        <a-mat-select
-          class="col-md"
-          [object]="object"
-          [roleType]="m.Person.Salutation"
-          [options]="salutations"
-          display="Name"
-        ></a-mat-select>
         <a-mat-input
           class="col-md"
           [object]="object"
@@ -30,62 +23,10 @@
         <a-mat-select
           class="col-md"
           [object]="object"
-          [roleType]="m.Person.Gender"
-          [options]="genders"
-          display="Name"
-        ></a-mat-select>
-        <a-mat-select
-          class="col-md"
-          [object]="object"
           [roleType]="m.Person.Locale"
           [options]="locales"
           display="Name"
         ></a-mat-select>
-      </div>
-
-      <div class="row">
-        <a-mat-select
-          class="col-md"
-          [object]="object"
-          [roleType]="m.Person.PreferredCurrency"
-          [options]="currencies"
-          display="Name"
-        ></a-mat-select>
-        <a-mat-input
-          class="col-md"
-          [object]="object"
-          [roleType]="m.Person.Function"
-        ></a-mat-input>
-      </div>
-
-      <!-- <div class="row">
-        <a-mat-autocomplete
-          *ngIf="createRequest"
-          class="col-md"
-          [(ngModel)]="organisation"
-          [filter]="organisationsFilter.create(allors.context)"
-          display="Name"
-          label="Organisation"
-        ></a-mat-autocomplete>
-      </div> -->
-
-      <div class="row">
-        <a-mat-textarea
-          class="col-md-12"
-          [object]="object"
-          [roleType]="m.Person.Comment"
-        ></a-mat-textarea>
-        <a-mat-file
-          class="col-md-12"
-          [object]="object"
-          [roleType]="m.Person.Picture"
-          accept="image/*"
-        ></a-mat-file>
-        <a-mat-slidetoggle
-          class="col-md"
-          [object]="object"
-          [roleType]="m.Person.CollectiveWorkEffortInvoice"
-        ></a-mat-slidetoggle>
       </div>
     </div>
   </mat-tab>
@@ -112,7 +53,7 @@
             placeholder="UserGroups"
             multiple="true"
             [disabled]="!canWriteMembers"
-            >
+          >
             <mat-option
               (onSelectionChange)="onUserGroupChange($event)"
               *ngFor="let userGroup of userGroups"
@@ -121,14 +62,6 @@
             >
           </mat-select>
         </mat-form-field>
-        <a-mat-select
-          class="col-md-6"
-          [object]="object"
-          [roleType]="m.Person.EmailFrequency"
-          [options]="emailFrequencies"
-          display="Name"
-        >
-        </a-mat-select>
       </div>
 
       <div class="row">

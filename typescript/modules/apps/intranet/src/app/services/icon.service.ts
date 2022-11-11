@@ -14,22 +14,7 @@ export class AppIconService implements IconService {
 
     this.iconByComposite = new Map();
     this.iconByComposite.set(m.Country, 'public');
-    this.iconByComposite.set(m.Organisation, 'domain');
-    this.iconByComposite.set(m.CustomerShipment, 'local_shipping');
-    this.iconByComposite.set(m.NonUnifiedPart, 'business');
-    this.iconByComposite.set(m.Organisation, 'business');
     this.iconByComposite.set(m.Person, 'person');
-    this.iconByComposite.set(m.ProductQuote, 'business');
-    this.iconByComposite.set(m.PurchaseInvoice, 'business');
-    this.iconByComposite.set(m.PurchaseOrder, 'business');
-    this.iconByComposite.set(m.PurchaseShipment, 'local_shipping');
-    this.iconByComposite.set(m.RequestForQuote, 'business');
-    this.iconByComposite.set(m.SalesInvoice, 'business');
-    this.iconByComposite.set(m.SalesOrder, 'business');
-    this.iconByComposite.set(m.SerialisedItem, 'business');
-    this.iconByComposite.set(m.UnifiedGood, 'business');
-    this.iconByComposite.set(m.WorkRequirement, 'business');
-    this.iconByComposite.set(m.WorkTask, 'business');
   }
 
   icon(meta: Composite | RelationType): string {

@@ -28,105 +28,10 @@ export class AppNavigationService extends NavigationService {
 
     // Navigation
     define(m.Person, '/contacts/people', '/contacts/person/:id');
-    define(
-      m.Organisation,
-      '/contacts/organisations',
-      '/contacts/organisation/:id'
-    );
-    define(m.CommunicationEvent, '/contacts/communicationevents');
 
-    define(
-      m.RequestForQuote,
-      '/sales/requestsforquote',
-      '/sales/requestforquote/:id'
-    );
-    define(m.ProductQuote, '/sales/productquotes', '/sales/productquote/:id');
-    define(m.SalesOrder, '/sales/salesorders', '/sales/salesorder/:id');
-    define(m.SalesInvoice, '/sales/salesinvoices', '/sales/salesinvoice/:id');
-
-    define(m.Good, '/products/goods');
-    define(m.NonUnifiedGood, '/products/goods', '/products/nonunifiedgood/:id');
     define(m.Notification, '/workflow/notifications');
-    define(m.Part, '/products/parts');
-    define(m.NonUnifiedPart, '/products/parts', '/products/nonunifiedpart/:id');
-    define(m.Catalogue, '/products/catalogues');
-    define(m.ProductCategory, '/products/productcategories');
-    define(m.PartCategory, '/products/partcategories');
-    define(
-      m.SerialisedItemCharacteristic,
-      '/products/serialiseditemcharacteristics'
-    );
-    define(m.Brand, '/products/brands');
-    define(m.Model, '/products/models');
-    define(m.ProductType, '/products/producttypes');
-    define(m.Facility, '/products/facilities');
-    define(
-      m.SerialisedItem,
-      '/products/serialiseditems',
-      '/products/serialisedItem/:id'
-    );
-    define(
-      m.UnifiedGood,
-      '/products/unifiedgoods',
-      '/products/unifiedgood/:id'
-    );
-    define(m.Vehicle, '/products/vehicles', '/products/vehicle/:id');
-    define(
-      m.PurchaseOrder,
-      '/purchasing/purchaseorders',
-      '/purchasing/purchaseorder/:id'
-    );
-    define(
-      m.PurchaseInvoice,
-      '/purchasing/purchaseinvoices',
-      '/purchasing/purchaseinvoice/:id'
-    );
-
-    define(m.Shipment, '/shipment/shipments');
-    define(
-      m.CustomerShipment,
-      '/shipment/shipments',
-      '/shipment/customershipment/:id'
-    );
-    define(
-      m.PurchaseShipment,
-      '/shipment/shipments',
-      '/shipment/purchaseshipment/:id'
-    );
-    define(
-      m.PurchaseReturn,
-      '/shipment/shipments',
-      '/shipment/purchasereturn/:id'
-    );
-    define(m.Carrier, '/shipment/carriers');
-
-    define(m.WorkRequirement, '/workefforts/workrequirements');
-    define(m.WorkEffort, '/workefforts/workefforts');
-    define(
-      m.WorkEffortType,
-      '/workefforts/workefforttypes',
-      '/workefforts/workefforttype/:id'
-    );
-    define(
-      m.MaintenanceAgreement,
-      '/workefforts/maintenanceagreements',
-      '/workefforts/maintenanceagreement/:id'
-    );
-    define(
-      m.WorkRequirement,
-      '/workefforts/workrequirements',
-      '/workefforts/workrequirement/:id'
-    );
-    define(m.WorkTask, '/workefforts/workefforts', '/workefforts/worktask/:id');
-
-    define(m.PositionType, '/humanresource/positiontypes');
-    define(m.PositionTypeRate, '/humanresource/positiontyperates');
-
     define(m.TaskAssignment, '/workflow/taskassignments');
 
-    define(m.ExchangeRate, '/accounting/exchangerates');
-
-    define(m.Settings, '/admin/settings');
     define(m.EmailMessage, '/admin/emailmessages');
   }
 

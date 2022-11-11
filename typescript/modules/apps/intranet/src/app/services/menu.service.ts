@@ -17,86 +17,12 @@ export class AppMenuService implements MenuService {
       {
         title: 'Contacts',
         icon: 'group',
-        children: [
-          { objectType: m.Person },
-          { objectType: m.Organisation },
-          { objectType: m.CommunicationEvent },
-        ],
-      },
-      {
-        title: 'Products',
-        icon: 'label',
-        children: [
-          { objectType: m.SerialisedItem, title: 'Serialised Assets' },
-          { objectType: m.UnifiedGood, title: 'Products' },
-          { objectType: m.NonUnifiedPart, title: 'Spare Parts' },
-          { objectType: m.Vehicle },
-          { objectType: m.ProductCategory, title: 'Product Categories' },
-          { objectType: m.PartCategory, title: 'Part Categories' },
-          {
-            objectType: m.SerialisedItemCharacteristic,
-            title: 'Characteristics',
-          },
-          { objectType: m.Brand },
-          { objectType: m.Model },
-          { objectType: m.ProductType },
-          { objectType: m.Facility },
-        ],
-      },
-      {
-        title: 'Sales',
-        icon: 'credit_card',
-        children: [
-          { objectType: m.RequestForQuote },
-          { objectType: m.ProductQuote },
-          { objectType: m.SalesOrder },
-          { objectType: m.SalesInvoice },
-        ],
-      },
-      {
-        title: 'Purchasing',
-        icon: 'local_shipping',
-        children: [
-          { objectType: m.PurchaseOrder },
-          { objectType: m.PurchaseInvoice },
-        ],
-      },
-      {
-        title: 'Shipments',
-        icon: 'local_shipping',
-        children: [{ objectType: m.Shipment }, { objectType: m.Carrier }],
-      },
-      {
-        title: 'WorkEfforts',
-        icon: 'schedule',
-        children: [
-          { objectType: m.WorkRequirement, title: 'Service Requests' },
-          { objectType: m.WorkEffort, title: 'Work Orders' },
-          { objectType: m.WorkEffortType, title: 'Work Order Types' },
-          { objectType: m.MaintenanceAgreement, title: 'Service Agreements' },
-          { link: '/workflow/timesheet', title: 'Timesheets' },
-        ],
-      },
-      {
-        title: 'HR',
-        icon: 'group',
-        children: [
-          { objectType: m.PositionType },
-          { objectType: m.PositionTypeRate },
-        ],
-      },
-      {
-        title: 'Accounting',
-        icon: 'money',
-        children: [{ objectType: m.ExchangeRate }],
+        children: [{ objectType: m.Person }],
       },
       {
         title: 'Admin',
         icon: 'admin_panel_settings',
-        children: [
-          { objectType: m.Settings, title: 'Settings' },
-          { objectType: m.EmailMessage },
-        ],
+        children: [{ objectType: m.EmailMessage }],
       },
     ];
   }

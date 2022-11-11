@@ -7,13 +7,7 @@ import {
 } from '@angular/core';
 
 import { M } from '@allors/default/workspace/meta';
-import {
-  Locale,
-  Person,
-  Enumeration,
-  Salutation,
-  GenderType,
-} from '@allors/default/workspace/domain';
+import { Locale, Person, Enumeration } from '@allors/default/workspace/domain';
 import { ContextService } from '@allors/base/workspace/angular/foundation';
 
 @Component({
@@ -47,29 +41,10 @@ export class PersonInlineComponent implements OnInit, OnDestroy {
       pull.Locale({
         sorting: [{ roleType: this.m.Locale.Name }],
       }),
-      pull.GenderType({
-        predicate: {
-          kind: 'Equals',
-          propertyType: this.m.GenderType.IsActive,
-          value: true,
-        },
-        sorting: [{ roleType: this.m.GenderType.Name }],
-      }),
-      pull.Salutation({
-        predicate: {
-          kind: 'Equals',
-          propertyType: this.m.Salutation.IsActive,
-          value: true,
-        },
-        sorting: [{ roleType: this.m.Salutation.Name }],
-      }),
     ];
 
     this.allors.context.pull(pulls).subscribe((loaded) => {
       this.locales = loaded.collection<Locale>(m.Locale);
-      this.genders = loaded.collection<GenderType>(m.GenderType);
-      this.salutations = loaded.collection<Salutation>(m.Salutation);
-
       this.person = this.allors.context.create<Person>(m.Person);
     });
   }

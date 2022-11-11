@@ -27,9 +27,7 @@ export class RedirectComponent implements OnInit {
       pull.User({
         objectId: this.userIdState.value,
         include: {
-          UserGroupsWhereMember: {
-            InternalOrganisationWhereBlueCollarWorkerUserGroup: x,
-          },
+          UserGroupsWhereMember: {},
         },
       }),
     ];
@@ -38,18 +36,20 @@ export class RedirectComponent implements OnInit {
       const user = loaded.object<User>(m.User);
       const userGroups = user.UserGroupsWhereMember;
 
-      const isWorker = !!userGroups.find(
-        (v) => !!v.InternalOrganisationWhereBlueCollarWorkerUserGroup
-      );
-      const isStockManager = !!userGroups.find(
-        (v) => !!v.InternalOrganisationWhereStockManagerUserGroup
-      );
+      // const isWorker = !!userGroups.find(
+      //   (v) => !!v.InternalOrganisationWhereBlueCollarWorkerUserGroup
+      // );
+      // const isStockManager = !!userGroups.find(
+      //   (v) => !!v.InternalOrganisationWhereStockManagerUserGroup
+      // );
 
-      if (isWorker) {
-        this.router.navigate(['/shopfloor']);
-      } else {
-        this.router.navigate(['/dashboard']);
-      }
+      // if (isWorker) {
+      //   this.router.navigate(['/shopfloor']);
+      // } else {
+      //   this.router.navigate(['/dashboard']);
+      // }
+
+      this.router.navigate(['/dashboard']);
     });
   }
 }

@@ -61,7 +61,7 @@ namespace Allors.Database.Server.Controllers
                     builder =>
                     {
                         builder.WithOrigins(
-                                "http://localhost:4000", "http://localhost:4200", "http://localhost:8000",
+                                "http://localhost:4000", "http://localhost:4200", "http://localhost:5000",
                                 "https://kickstart.com", "https://test.kickstart.com")
                             .AllowAnyHeader()
                             .AllowAnyMethod()

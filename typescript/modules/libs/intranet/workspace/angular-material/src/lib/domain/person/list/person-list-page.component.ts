@@ -29,9 +29,7 @@ import { formatDistance } from 'date-fns';
 interface Row extends TableRow {
   object: Person;
   name: string;
-  email: string;
-  phone: string;
-  isCustomer: string;
+  tasks: number;
   lastModifiedDate: string;
 }
 
@@ -136,13 +134,7 @@ export class PersonListPageComponent implements OnInit, OnDestroy {
                   ? this.sorterService.sorter(m.Person)?.create(sort)
                   : null,
                 include: {
-                  Salutation: x,
-                  Picture: x,
-                  PartyContactMechanismsWhereParty: {
-                    ContactMechanism: {
-                      PostalAddress_Country: x,
-                    },
-                  },
+                  TaskAssignmentsWhereUser: x,
                 },
                 arguments: this.filter.parameters(filterFields),
                 skip: pageEvent.pageIndex * pageEvent.pageSize,
@@ -162,10 +154,7 @@ export class PersonListPageComponent implements OnInit, OnDestroy {
           return {
             object: v,
             name: v.DisplayName,
-            email: v.DisplayEmail,
-            phone: v.DisplayPhone,
-            isCustomer:
-              v.CustomerRelationshipsWhereCustomer.length > 0 ? 'Yes' : 'No',
+            tasks: v.TaskAssignmentsWhereUser.length,
             lastModifiedDate: formatDistance(
               new Date(v.LastModifiedDate),
               new Date()
