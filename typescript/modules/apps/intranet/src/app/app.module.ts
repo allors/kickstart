@@ -148,6 +148,11 @@ import {
 
 import {
   AllorsCommandService,
+  EmailMessageListPageComponent,
+  OrganisationInlineComponent,
+  OrganisationListPageComponent,
+  OrganisationOverviewPageComponent,
+  OrganisationSummaryPanelComponent,
   PersonInlineComponent,
   PersonListPageComponent,
   PersonOverviewPageComponent,
@@ -234,6 +239,11 @@ import { AppActionService } from './services/action.service';
     ...formEditComponents,
     ...formComponents,
     // Non routed and non dialog components
+    EmailMessageListPageComponent,
+    OrganisationInlineComponent,
+    OrganisationListPageComponent,
+    OrganisationOverviewPageComponent,
+    OrganisationSummaryPanelComponent,
     PersonInlineComponent,
     PersonListPageComponent,
     PersonOverviewPageComponent,

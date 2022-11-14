@@ -19,11 +19,11 @@ export class AppMetaService implements MetaService {
     const m = workspaceService.workspace.configuration.metaPopulation as M;
 
     this.singularNameByObject = new Map<Composite | PropertyType, string>([
-      // [m.Organisation, 'Company'],
+      [m.Organisation, 'Company'],
     ]);
 
     this.pluralNameByObject = new Map<Composite | PropertyType, string>([
-      // [m.Organisation, 'Companies'],
+      [m.Organisation, 'Companies'],
     ]);
   }
 

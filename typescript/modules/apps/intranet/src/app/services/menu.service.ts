@@ -17,7 +17,7 @@ export class AppMenuService implements MenuService {
       {
         title: 'Contacts',
         icon: 'group',
-        children: [{ objectType: m.Person }],
+        children: [{ objectType: m.Person }, { objectType: m.Organisation }],
       },
       {
         title: 'Admin',

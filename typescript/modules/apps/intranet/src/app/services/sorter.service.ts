@@ -30,6 +30,14 @@ export class AppSorterService implements SorterService {
     );
 
     define(
+      m.Organisation,
+      new Sorter({
+        name: m.Organisation.Name,
+        lastModifiedDate: m.Organisation.LastModifiedDate,
+      })
+    );
+
+    define(
       m.Person,
       new Sorter({
         name: [m.Person.FirstName, m.Person.LastName],

@@ -6,7 +6,9 @@ import {
 
 export const dialogs = {
   create: {
+    [tags.EmailMessage]: Edit,
     [tags.Person]: Create,
+    [tags.Organisation]: Create,
   },
   edit: {
     [tags.TaskAssignment]: Edit,

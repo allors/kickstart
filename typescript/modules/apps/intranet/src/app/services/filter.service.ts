@@ -80,6 +80,16 @@ export class AppFilterService implements FilterService {
     );
 
     define(
+      m.Organisation,
+      new FilterDefinition({
+        kind: 'And',
+        operands: [
+          { kind: 'Like', roleType: m.Organisation.Name, parameter: 'name' },
+        ],
+      })
+    );
+
+    define(
       m.Person,
       new FilterDefinition(
         {

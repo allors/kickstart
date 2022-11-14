@@ -1,5 +1,6 @@
 # Custom
 #-------
+/.nuke/temp
 population.xml
 signtool.exe
 generated/

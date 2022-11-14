@@ -5,7 +5,12 @@ import {
 } from '@allors/base/workspace/angular/foundation';
 
 import { Injectable } from '@angular/core';
-import { PersonFormComponent } from '@allors/default/workspace/angular-material';
+import {
+  EmailMessageFormComponent,
+  OrganisationCreateFormComponent,
+  OrganisationEditFormComponent,
+  PersonFormComponent,
+} from '@allors/default/workspace/angular-material';
 import { M } from '@allors/default/workspace/meta';
 
 @Injectable()
@@ -17,9 +22,14 @@ export class AppFormService implements FormService {
   constructor(workspaceService: WorkspaceService) {
     const m = workspaceService.workspace.configuration.metaPopulation as M;
 
-    this.createFormByObjectType = new Map<Composite, unknown>([]);
+    this.createFormByObjectType = new Map<Composite, unknown>([
+      [m.Organisation, OrganisationCreateFormComponent],
+    ]);
 
-    this.editFormByObjectType = new Map<Composite, unknown>([]);
+    this.editFormByObjectType = new Map<Composite, unknown>([
+      [m.EmailMessage, EmailMessageFormComponent],
+      [m.Organisation, OrganisationEditFormComponent],
+    ]);
 
     this.formByObjectType = new Map<Composite, unknown>([
       [m.Person, PersonFormComponent],
@@ -41,8 +51,11 @@ export class AppFormService implements FormService {
   }
 }
 
-export const createComponents: any[] = [];
+export const createComponents: any[] = [OrganisationCreateFormComponent];
 
-export const editComponents: any[] = [];
+export const editComponents: any[] = [OrganisationEditFormComponent];
 
-export const components: any[] = [PersonFormComponent];
+export const components: any[] = [
+  EmailMessageFormComponent,
+  PersonFormComponent,
+];

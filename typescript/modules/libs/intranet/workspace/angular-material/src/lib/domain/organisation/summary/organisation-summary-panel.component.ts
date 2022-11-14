@@ -8,30 +8,29 @@ import {
 import { WorkspaceService } from '@allors/base/workspace/angular/foundation';
 import {
   AllorsViewSummaryPanelComponent,
-  NavigationService,
   PanelService,
   ScopedService,
 } from '@allors/base/workspace/angular/application';
 import { IPullResult, Pull } from '@allors/system/workspace/domain';
 import { M } from '@allors/default/workspace/meta';
-import { Person, User } from '@allors/default/workspace/domain';
+import { Organisation } from '@allors/default/workspace/domain';
 
 @Component({
-  selector: 'person-summary-panel',
-  templateUrl: './person-summary-panel.component.html',
+  selector: 'organisation-summary-panel',
+  templateUrl: './organisation-summary-panel.component.html',
 })
-export class PersonSummaryPanelComponent extends AllorsViewSummaryPanelComponent {
+export class OrganisationSummaryPanelComponent extends AllorsViewSummaryPanelComponent {
   m: M;
 
-  person: Person;
+  organisation: Organisation;
+  contactKindsText: string;
 
   constructor(
     scopedService: ScopedService,
     panelService: PanelService,
     refreshService: RefreshService,
     sharedPullService: SharedPullService,
-    workspaceService: WorkspaceService,
-    public navigation: NavigationService
+    workspaceService: WorkspaceService
   ) {
     super(scopedService, panelService, sharedPullService, refreshService);
     this.m = workspaceService.workspace.configuration.metaPopulation as M;
@@ -45,17 +44,18 @@ export class PersonSummaryPanelComponent extends AllorsViewSummaryPanelComponent
     const id = this.scoped.id;
 
     pulls.push(
-      p.Person({
-        name: `${prefix}`,
+      p.Organisation({
+        name: prefix,
         objectId: id,
         include: {
-          TaskAssignmentsWhereUser: {},
+          Locale: {},
+          LastModifiedBy: {},
         },
       })
     );
   }
 
   onPostSharedPull(loaded: IPullResult, prefix?: string) {
-    this.person = loaded.object<Person>(prefix);
+    this.organisation = loaded.object<Organisation>(prefix);
   }
 }

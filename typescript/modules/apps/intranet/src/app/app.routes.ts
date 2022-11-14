@@ -7,6 +7,9 @@ import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import {
+  EmailMessageListPageComponent,
+  OrganisationListPageComponent,
+  OrganisationOverviewPageComponent,
   PersonListPageComponent,
   PersonOverviewPageComponent,
   RedirectComponent,
@@ -38,6 +41,23 @@ export const routes: Routes = [
             children: [
               { path: 'people', component: PersonListPageComponent },
               { path: 'person/:id', component: PersonOverviewPageComponent },
+              {
+                path: 'organisations',
+                component: OrganisationListPageComponent,
+              },
+              {
+                path: 'organisation/:id',
+                component: OrganisationOverviewPageComponent,
+              },
+            ],
+          },
+          {
+            path: 'admin',
+            children: [
+              {
+                path: 'emailmessages',
+                component: EmailMessageListPageComponent,
+              },
             ],
           },
         ],

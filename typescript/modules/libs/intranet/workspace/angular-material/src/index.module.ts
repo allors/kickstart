@@ -90,6 +90,14 @@ import {
 } from '@allors/base/workspace/angular-material/application';
 
 import {
+  EmailMessageListPageComponent,
+  EmailMessageFormComponent,
+  OrganisationCreateFormComponent,
+  OrganisationInlineComponent,
+  OrganisationListPageComponent,
+  OrganisationOverviewPageComponent,
+  OrganisationEditFormComponent,
+  OrganisationSummaryPanelComponent,
   PersonFormComponent,
   PersonInlineComponent,
   PersonListPageComponent,
@@ -146,6 +154,14 @@ import {
     AllorsMaterialDynamicViewDetailPanelComponent,
     AllorsMaterialDynamicViewExtentPanelComponent,
     // Intranet Material
+    EmailMessageListPageComponent,
+    EmailMessageFormComponent,
+    OrganisationCreateFormComponent,
+    OrganisationInlineComponent,
+    OrganisationListPageComponent,
+    OrganisationOverviewPageComponent,
+    OrganisationEditFormComponent,
+    OrganisationSummaryPanelComponent,
     PersonFormComponent,
     PersonInlineComponent,
     PersonListPageComponent,

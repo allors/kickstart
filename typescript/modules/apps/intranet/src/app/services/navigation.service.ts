@@ -27,6 +27,11 @@ export class AppNavigationService extends NavigationService {
     };
 
     // Navigation
+    define(
+      m.Organisation,
+      '/contacts/organisations',
+      '/contacts/organisation/:id'
+    );
     define(m.Person, '/contacts/people', '/contacts/person/:id');
 
     define(m.Notification, '/workflow/notifications');
