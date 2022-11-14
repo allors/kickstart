@@ -7,7 +7,7 @@ using System;
 
 namespace Allors.Repository
 {
-    public partial class Person : Localised
+    public partial class Person : Party
     {
         #region inherited properties
         public User CreatedBy { get; set; }
@@ -16,6 +16,10 @@ namespace Allors.Repository
         public DateTime LastModifiedDate { get; set; }
         public string DisplayName { get; set; }
         public Locale Locale { get; set; }
+        public Currency PreferredCurrency { get; set; }
+        #endregion
+
+        #region inherited methods
         #endregion
     }
 }
