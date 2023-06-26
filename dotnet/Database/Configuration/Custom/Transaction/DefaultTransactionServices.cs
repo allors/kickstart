@@ -9,26 +9,24 @@ namespace Allors.Database.Configuration
     using System;
     using Database;
     using Domain;
-    using Microsoft.AspNetCore.Http;
     using Services;
 
     public class TransactionServices : ITransactionServices
     {
-        private readonly HttpUserWithGuestFallbackService userService;
+        private readonly UserService userService;
 
         private IDatabaseAclsService databaseAclsService;
         private IWorkspaceAclsService workspaceAclsService;
         private IObjectBuilderService objectBuilderService;
+        private IDeleting deleting;
 
-        public TransactionServices(IHttpContextAccessor httpContextAccessor) => this.userService = new HttpUserWithGuestFallbackService(httpContextAccessor);
-
-        public virtual void OnInit(ITransaction transaction)
+        public TransactionServices()
         {
-            transaction.Database.Services.Get<IPermissions>().Load(transaction);
-
-            this.Transaction = transaction;
-            this.userService.OnInit(transaction);
+            this.userService = new UserService();
+            this.userService.UserChanged += OnUserChanged;
         }
+
+
 
         public ITransaction Transaction { get; private set; }
 
@@ -43,11 +41,24 @@ namespace Allors.Database.Configuration
                 { } type when type == typeof(IUserService) => (T)(IUserService)this.userService,
                 { } type when type == typeof(IDatabaseAclsService) => (T)(this.databaseAclsService ??= new DatabaseAclsService(this.userService.User, this.DatabaseServices.Get<ISecurity>())),
                 { } type when type == typeof(IWorkspaceAclsService) => (T)(this.workspaceAclsService ??= new WorkspaceAclsService(this.DatabaseServices.Get<ISecurity>(), this.DatabaseServices.Get<IWorkspaceMask>(), this.userService.User)),
+                { } type when type == typeof(IDeleting) => (T)(this.deleting ??= new Deleting()),
                 _ => throw new NotSupportedException($"Service {typeof(T)} not supported")
             };
 
         public void Dispose()
         {
+        }
+
+        public virtual void OnInit(ITransaction transaction)
+        {
+            transaction.Database.Services.Get<IPermissions>().Load(transaction);
+            this.Transaction = transaction;
+        }
+
+        private void OnUserChanged(object sender, EventArgs e)
+        {
+            this.databaseAclsService = null;
+            this.workspaceAclsService = null;
         }
     }
 }

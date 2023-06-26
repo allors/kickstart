@@ -80,13 +80,13 @@ namespace Allors.Database.Configuration
 
         public MetaPopulation M { get; private set; }
 
-        public ITransactionServices CreateTransactionServices() => new TransactionServices(this.httpContextAccessor);
+        public ITransactionServices CreateTransactionServices() => new TransactionServices();
 
         public T Get<T>() =>
             typeof(T) switch
             {
                 // System
-                { } type when type == typeof(IMetaCache) => (T)(this.metaCache),
+                { } type when type == typeof(IMetaCache) => (T)this.metaCache,
                 { } type when type == typeof(IDerivationService) => (T)(this.derivationService ??= this.CreateDerivationFactory()),
                 { } type when type == typeof(IProcedures) => (T)(this.procedures ??= new Procedures(this.Database.ObjectFactory.Assembly)),
                 { } type when type == typeof(ISecurity) => (T)(this.security ??= new Security(this)),

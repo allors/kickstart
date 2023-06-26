@@ -19,6 +19,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using Allors.Database.Domain;
+using Allors.Database.Services;
 using NLog;
 using McMaster.Extensions.CommandLineUtils;
 

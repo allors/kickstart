@@ -6,6 +6,7 @@
 
 using Allors.Database.Configuration.Derivations.Default;
 using Allors.Database.Meta;
+using Allors.Database.Services;
 
 namespace Allors.Database.Domain.Tests
 {

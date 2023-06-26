@@ -23,6 +23,7 @@ using Allors.Database;
 using Allors.Database.Domain;
 using Allors.Database.Domain.TestPopulation;
 using Allors.Database.Meta;
+using Allors.Database.Services;
 
 namespace Allors
 {

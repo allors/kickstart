@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Build Schema",
   "$ref": "#/definitions/build",
+  "title": "Build Schema",
   "definitions": {
     "build": {
       "type": "object",
@@ -102,8 +102,8 @@
               "Install",
               "IntranetScaffold",
               "IntranetTest",
-              "PostgresDocker",
               "Publish",
+              "Reset",
               "SaveForStaging",
               "Setup",
               "Upgrade"
@@ -126,8 +126,8 @@
               "Install",
               "IntranetScaffold",
               "IntranetTest",
-              "PostgresDocker",
               "Publish",
+              "Reset",
               "SaveForStaging",
               "Setup",
               "Upgrade"
